@@ -7,12 +7,14 @@ import { UserModule } from '../user/user.module';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminSideNavbarComponent } from './components/admin-side-navbar/admin-side-navbar.component';
+import { AdminSystemOverviewComponent } from './components/admin-system-overview/admin-system-overview.component';
 
 @NgModule({
   declarations: [
   AdminNavbarComponent,
   AdminDashboardComponent,
-  AdminSideNavbarComponent
+  AdminSideNavbarComponent,
+  AdminSystemOverviewComponent
 ],
   imports: [
     AdminRoutingModule,

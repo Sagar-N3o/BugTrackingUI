@@ -78,7 +78,7 @@ body {
 .main-color-bg {
     background-color: #e74c3c !important;
     border-color: #c0392b !important;
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 /* HEADER */
@@ -97,4 +97,8 @@ body {
 
 .breadcrumb a {
     color: #333333;
+}
+
+.dash-box {
+    text-align: center;
 }
