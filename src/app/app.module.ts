@@ -8,8 +8,9 @@ import { AdminModule } from './admin/admin.module';
 import { UserRoleModule } from './user-role/user-role.module';
 import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent } from './app.component';
+import { DashboardService } from './shared/services/dashboard.service';
 
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     UserRoleModule
   ],
-  providers: [],
+  providers: [
+    DashboardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
