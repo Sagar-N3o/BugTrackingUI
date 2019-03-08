@@ -1,0 +1,37 @@
+<app-admin-navbar></app-admin-navbar>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="container">
+    <h1>
+      <span class="fa fa-group" aria-hidden="true"> </span> Employee
+      <small>Manage employee records</small>
+    </h1>
+  </div>
+</header>
+<!-- END HEADER -->
+
+<!-- BREADCRUMB -->
+<section id="breadcrumb">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="admin/dashboard">Dashboard</a></li>
+      <span> > </span>
+      <li class="active">Employee</li>
+    </ol>
+  </div>
+</section>
+<!-- END BREADCRUMB -->
+
+<section id="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <app-admin-side-navbar></app-admin-side-navbar>
+      </div>
+      <div class="col-md-9">
+        <app-admin-employee-list></app-admin-employee-list>
+      </div>
+    </div>
+  </div>
+</section>
