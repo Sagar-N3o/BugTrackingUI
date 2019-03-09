@@ -10,7 +10,6 @@ import { AdminSideNavbarComponent } from './components/admin-side-navbar/admin-s
 import { AdminSystemOverviewComponent } from './components/admin-system-overview/admin-system-overview.component';
 import { AdminBugComponent } from './components/admin-bug/admin-bug.component';
 import { AdminEmployeeComponent } from './components/admin-employee/admin-employee.component';
-import { AdminEmployeeListComponent } from './components/admin-employee-list/admin-employee-list.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,7 @@ import { AdminEmployeeListComponent } from './components/admin-employee-list/adm
   AdminSideNavbarComponent,
   AdminSystemOverviewComponent,
   AdminBugComponent,
-  AdminEmployeeComponent,
-  AdminEmployeeListComponent
+  AdminEmployeeComponent
 ],
   imports: [
     SharedModule,
