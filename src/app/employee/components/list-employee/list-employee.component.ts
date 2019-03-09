@@ -10,6 +10,7 @@ import { EmployeeService } from 'src/app/shared/services/employee.service';
 export class ListEmployeeComponent implements OnInit {
 
   employees = []
+  error: boolean = false;
 
   constructor(
     private _employeeService: EmployeeService
@@ -23,10 +24,15 @@ export class ListEmployeeComponent implements OnInit {
             this.employees = data['Data'];
             console.log(this.employees);
           }
-          else
-            console.log("Error");
+          else {
+            // console.log(data['Data']);
+            this.error = true;
+          }
         },
-        err => console.log(err['message'])
+        err => { 
+          // console.log(err['message'])
+          this.error = true;
+        }
       );
   }
 

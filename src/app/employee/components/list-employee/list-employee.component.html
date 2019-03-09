@@ -21,7 +21,7 @@
           <td><b>Action</b></td>
         </tr>
       </thead>
-      <tbody>
+      <tbody *ngIf="!error">
         <tr *ngFor="let employee of employees">
           <td>{{ employee.FirstName }} {{ employee.LastName }}</td>
           <td>{{ employee.Email }}</td>
@@ -32,6 +32,13 @@
             <button type="button" class="btn btn-info action-button">Details</button>
             <button type="button" class="btn btn-success action-button">Update</button>
             <button type="button" class="btn btn-danger action-button">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="error">
+        <tr>
+          <td colspan="6">
+            oops..! Could not load the data.
           </td>
         </tr>
       </tbody>
