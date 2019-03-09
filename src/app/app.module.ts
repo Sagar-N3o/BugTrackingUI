@@ -7,9 +7,10 @@ import { AdminModule } from './admin/admin.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { DashboardService } from './shared/services/dashboard.service';
-import { UserService } from './shared/services/user.service';
+import { EmployeeService } from './shared/services/employee.service';
 
 import { AppComponent } from './app.component';
+import { EmployeeModule } from './employee/employee.module';
 
 @NgModule({
   declarations: [
@@ -20,11 +21,12 @@ import { AppComponent } from './app.component';
     SharedModule,
     CoreModule,
     AdminModule,
-    AppRoutingModule
+    AppRoutingModule,
+    EmployeeModule
   ],
   providers: [
     DashboardService,
-    UserService
+    EmployeeService
   ],
   bootstrap: [AppComponent]
 })

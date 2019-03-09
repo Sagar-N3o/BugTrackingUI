@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing/admin-routing.module';
+import { EmployeeModule } from '../employee/employee.module';
 import { SharedModule } from '../shared/shared.module';
 
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
@@ -22,6 +23,7 @@ import { AdminEmployeeComponent } from './components/admin-employee/admin-employ
 ],
   imports: [
     SharedModule,
+    EmployeeModule,
     AdminRoutingModule,
     CommonModule
   ]
