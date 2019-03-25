@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { EmployeeService } from 'src/app/shared/services/employee.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-employee',
@@ -13,7 +14,8 @@ export class ListEmployeeComponent implements OnInit {
   error: boolean = false;
 
   constructor(
-    private _employeeService: EmployeeService
+    private _employeeService: EmployeeService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -37,6 +39,6 @@ export class ListEmployeeComponent implements OnInit {
   }
 
   CreateNewEmployee() {
-    
+    this._router.navigate(['admin/employee/create']);
   }
 }

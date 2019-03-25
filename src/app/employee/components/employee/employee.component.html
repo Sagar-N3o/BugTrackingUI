@@ -30,8 +30,13 @@
         <app-admin-side-navbar></app-admin-side-navbar>
       </div>
       <div class="col-md-9">
-        <app-list-employee></app-list-employee>
-        <!-- <app-create-employee></app-create-employee> -->
+        <router-outlet></router-outlet>
+        <!-- <div *ngIf="_router.url == '/admin/employee'">
+          <app-list-employee></app-list-employee>
+        </div>
+        <div *ngIf="_router.url == '/admin/employee/create'">
+          <app-create-employee></app-create-employee>
+        </div> -->
       </div>
     </div>
   </div>
