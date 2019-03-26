@@ -5,8 +5,85 @@
     </h3>
   </div>
   <div class="panel-body">
-    <form>
-      
+    <form [formGroup]="_employeeService.employeeForm" (ngSubmit)="OnSubmit()">
+      <div class="row mb-10">
+        <div class="form-group">
+          <!-- First Name -->
+          <div class="col-md-2">
+            <label for="FirstName" class="control-label">FirstName</label>
+          </div>
+          <div class="col-md-4">
+            <input type="text" id="FirstName" formControName="FirstName" class="form-control" />
+          </div>
+
+          <!-- Last Name -->
+          <div class="col-md-2">
+            <label for="LastName" class="control-label">LastName</label>
+          </div>
+          <div class="col-md-4">
+            <input type="text" id="LastName" formControlName="LastName" class="form-control" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="row mb-10">
+        <div class="col-md-2">
+          <label for="Email" class="control-label">Email</label>
+        </div>
+        <div class="col-md-10">
+          <input type="email" id="Email" formConrolName="Email" class="form-control" />
+        </div>
+      </div>
+
+      <!-- Address -->
+      <div class="row mb-10">
+        <div class="col-md-2">
+          <label for="Address" class="control-label">Address</label>
+        </div>
+        <div class="col-md-10">
+          <textarea id="Address" formControlName="Address" class="form-control" rows="4"></textarea>
+        </div>
+      </div>
+
+      <!-- Contect number -->
+      <div class="row mb-10">
+        <div class="col-md-2">
+          <label for="ContectNumber" class="control-label">Contect Number</label>
+        </div>
+        <div class="col-md-10">
+          <input type="text" id="ContectNumber" formControlName="ContectNumber" class="form-control" />
+        </div>
+      </div>
+
+      <!-- Role Id -->
+      <div class="row mb-10">
+        <div class="col-md-2">
+          <label for="RoleId" class="control-label">Role</label>
+        </div>
+        <div class="col-md-10">
+          <select id="RoleId" formControlName="RoleId" class="form-control">
+            <option>-- Select Role --</option>
+            <option>Admin</option>
+            <option>Employee</option>
+            <option>Tester</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- IsActive -->
+      <div class="row mb-10">
+        <div class="col-md-2">
+          <label for="IsActive" class="control-label chk-label">Is Active</label>
+        </div>
+        <div class="col-md-10">
+          <div class="checkbox">
+            <label>
+              <input id="IsActive" type="checkbox" formControlName="IsActive" />
+            </label>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
 </div>

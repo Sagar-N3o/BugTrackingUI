@@ -5,6 +5,7 @@ import { CreateEmployeeComponent } from './components/create-employee/create-emp
 import { EmployeeRoutingModule } from './employee-routing/employee-routing.module';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { AdminModule } from '../admin/admin.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { AdminModule } from '../admin/admin.module';
   imports: [
     CommonModule,
     AdminModule,
+    SharedModule,
     EmployeeRoutingModule
   ],
   exports: [
