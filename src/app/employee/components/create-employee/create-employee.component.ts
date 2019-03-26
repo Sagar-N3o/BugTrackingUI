@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/shared/services/employee.service';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-create-employee',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class CreateEmployeeComponent implements OnInit {
 
   hasError: boolean = false;
+  roles = [];
 
   constructor(
     private _employeeService: EmployeeService,
@@ -18,6 +20,19 @@ export class CreateEmployeeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    this._employeeService.GetRoles().subscribe(
+      data => {
+        if(data['Success']) {
+          this.roles = data['Data'];
+        } else {
+          this.hasError = true;
+        }
+      },
+      err => {
+        this.hasError = true;
+      }
+    )
   }
 
   OnSubmit() {
