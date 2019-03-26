@@ -21,7 +21,7 @@ export class EmployeeService {
     'Address': [''],
     'ContectNumber': [''],
     'RoleId': [-1],
-    'IsActive': [false],
+    'IsActive': [true],
     'BirthDate': [''],
     'Experience': [0],
     'Password': ['']
