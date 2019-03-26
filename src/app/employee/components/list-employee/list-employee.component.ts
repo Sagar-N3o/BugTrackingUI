@@ -24,7 +24,7 @@ export class ListEmployeeComponent implements OnInit {
         data => {
           if(data['Success']) {
             this.employees = data['Data'];
-            console.log(this.employees);
+            // console.log(this.employees);
           }
           else {
             // console.log(data['Data']);
