@@ -7,7 +7,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class EmployeeService {
 
-  private _bashURL = "http://localhost:50664/api/user";
+  private _bashURL = "http://localhost:50664/api/";
 
   constructor(
     private _http: HttpClient,
@@ -28,6 +28,15 @@ export class EmployeeService {
   })
 
   GetAllEmployees() {
-    return this._http.get<any>(this._bashURL + '/get-all');
+    return this._http.get<any>(this._bashURL + 'user/get-all');
+  }
+
+  GetRoles() {
+    return this._http.get<any>(this._bashURL + 'role/get-all');
+  }
+
+  CreateEmployee(data: any) {
+    data.RoleId = 2;
+    return this._http.post<any>(this._bashURL + 'user/create', data);
   }
 }
