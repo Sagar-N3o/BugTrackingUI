@@ -46,4 +46,8 @@ export class EmployeeService {
   EmployeeDetails(id: number) {
     return this._http.get<any>(this._bashURL + 'user/get/' + id);
   }
+
+  UpdateEmployee(id: number, data: any) {
+    return this._http.put<any>(this._bashURL + 'user/update' + id, data);
+  }
 }

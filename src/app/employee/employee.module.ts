@@ -8,6 +8,7 @@ import { AdminModule } from '../admin/admin.module';
 import { SharedModule } from '../shared/shared.module';
 import { DeleteEmployeeComponent } from './components/delete-employee/delete-employee.component';
 import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
+import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { EmployeeDetailsComponent } from './components/employee-details/employee
     CreateEmployeeComponent,
     EmployeeComponent,
     DeleteEmployeeComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    UpdateEmployeeComponent
   ],
   imports: [
     CommonModule,

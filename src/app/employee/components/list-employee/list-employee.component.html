@@ -18,7 +18,7 @@
           <td><b>Role</b></td>
           <td><b>Experience</b></td>
           <td><b>Current Bugs</b></td>
-          <td><b>Action</b></td>
+          <td><b>Actions</b></td>
         </tr>
       </thead>
       <tbody *ngIf="!error">
@@ -30,7 +30,6 @@
           <td>{{ employee.BugViewModels.length }}</td>
           <td>
             <button type="button" class="btn btn-info action-button" (click)="EmployeeDetails(employee.Id)">Details</button>
-            <button type="button" class="btn btn-success action-button" (click)="UpdateEmployee(employee.Id)">Update</button>
             <button type="button" class="btn btn-danger action-button" (click)="DeleteEmployee(employee.Id)">Delete</button>
           </td>
         </tr>

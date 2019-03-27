@@ -61,10 +61,10 @@
         </div>
 
         <!-- Role Id -->
-        <div class="col-md-1">
+        <div class="col-md-2">
           <label for="RoleId" class="control-label">Role</label>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-4">
           <select id="RoleId" formControlName="RoleId" class="form-control">
             <option>-- Select Role --</option>
             <option *ngFor="let role of roles" value="{{ role.Id }}">{{ role.RoleName }}</option>
@@ -77,7 +77,7 @@
         <div class="col-md-2">
           <label for="IsActive" class="control-label chk-label">Is Active</label>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="checkbox">
             <label>
               <input id="IsActive" type="checkbox" formControlName="IsActive" />
@@ -89,7 +89,7 @@
         <div class="col-md-2">
           <label for="BirthDate" class="control-label">Date of Birth</label>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-4">
           <input type="date" id="BirthDate" formControlName="BirthDate" class="form-control" />
         </div>
       </div>
@@ -104,10 +104,10 @@
         </div>
 
         <!-- Password -->
-        <div class="col-md-1">
+        <div class="col-md-2">
           <label for="Password" class="control-label">Password</label>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-4">
           <input type="password" id="Password" formControlName="Password" class="form-control" />
         </div>
       </div>

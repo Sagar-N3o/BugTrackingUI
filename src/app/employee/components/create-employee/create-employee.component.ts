@@ -19,7 +19,6 @@ export class CreateEmployeeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     this._employeeService.GetRoles().subscribe(
       data => {
         if(data['Success'])
@@ -34,7 +33,6 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   OnSubmit() {
-
     this._employeeService.CreateEmployee(this._employeeService.employeeForm.value).subscribe(
       res => {
         this._employeeService.employeeForm.reset();
