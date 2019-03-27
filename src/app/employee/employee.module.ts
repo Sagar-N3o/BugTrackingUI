@@ -7,13 +7,15 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { AdminModule } from '../admin/admin.module';
 import { SharedModule } from '../shared/shared.module';
 import { DeleteEmployeeComponent } from './components/delete-employee/delete-employee.component';
+import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
 
 @NgModule({
   declarations: [
     ListEmployeeComponent,
     CreateEmployeeComponent,
     EmployeeComponent,
-    DeleteEmployeeComponent
+    DeleteEmployeeComponent,
+    EmployeeDetailsComponent
   ],
   imports: [
     CommonModule,

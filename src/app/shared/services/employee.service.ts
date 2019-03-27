@@ -42,4 +42,8 @@ export class EmployeeService {
   DeleteEmployee(id: number) {
     return this._http.delete<any>(this._bashURL + 'user/delete/' + id);
   }
+
+  EmployeeDetails(id: number) {
+    return this._http.get<any>(this._bashURL + 'user/get/' + id);
+  }
 }

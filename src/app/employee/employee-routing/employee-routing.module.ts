@@ -4,13 +4,15 @@ import { ListEmployeeComponent } from '../components/list-employee/list-employee
 import { CreateEmployeeComponent } from '../components/create-employee/create-employee.component';
 import { EmployeeComponent } from '../components/employee/employee.component';
 import { DeleteEmployeeComponent } from '../components/delete-employee/delete-employee.component';
+import { EmployeeDetailsComponent } from '../components/employee-details/employee-details.component';
 
 const routes: Routes = [
   {
     path: 'admin/employee', component: EmployeeComponent, children: [
       { path: '', component: ListEmployeeComponent },
       { path: 'create', component: CreateEmployeeComponent },
-      { path: 'delete/:id', component: DeleteEmployeeComponent }
+      { path: 'delete/:id', component: DeleteEmployeeComponent },
+      { path: 'details/:id', component: EmployeeDetailsComponent }
     ]
   }
 ]

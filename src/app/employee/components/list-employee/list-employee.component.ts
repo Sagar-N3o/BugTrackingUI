@@ -22,18 +22,12 @@ export class ListEmployeeComponent implements OnInit {
     this._employeeService.GetAllEmployees()
       .subscribe(
         data => {
-          if(data['Success']) {
+          if(data['Success'])
             this.employees = data['Data'];
-            // console.log(this.employees);
-          } else {
-            // console.log(data['Data']);
+          else 
             this.error = true;
-          }
         },
-        err => { 
-          // console.log(err['message'])
-          this.error = true;
-        }
+        err => this.error = true
       );
   }
 
@@ -43,5 +37,9 @@ export class ListEmployeeComponent implements OnInit {
 
   DeleteEmployee(id: number) {
     this._router.navigate(['admin/employee/delete', id]);
+  }
+
+  EmployeeDetails(id: number) {
+    this._router.navigate(['admin/employee/details', id]);
   }
 }
