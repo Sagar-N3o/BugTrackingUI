@@ -13,7 +13,7 @@
             <span class="fa fa-2x fa-bug"></span>
           </h4>
           <div class="card-container">
-            5 Active bugs
+            {{ employee.BugViewModels.length }} Active bugs
           </div>
         </div>
 
@@ -39,36 +39,36 @@
     </h4>
     <table border="0" class="table table-hover">
       <tr>
-        <td width="200px">Name</td>
-        <td>Sagar Agola</td>
+        <td width="210px">Name</td>
+        <td>{{ employee.FirstName }} {{ employee.LastName }}</td>
       </tr>
       <tr>
         <td>Email </td>
-        <td>n3o735@gmail.com</td>
+        <td>{{ employee.Email }}</td>
       </tr>
       <tr>
         <td>Contect Number </td>
-        <td>7359196488</td>
+        <td>{{ employee.ContectNumber }}</td>
       </tr>
       <tr>
         <td>Experience </td>
-        <td>5 <small>(years)</small></td>
+        <td>{{ employee.Experience }} <small>(years)</small></td>
       </tr>
       <tr>
         <td>Is Active </td>
-        <td>Yes</td>
+        <td>{{ employee.IsActive }}</td>
       </tr>
       <tr>
         <td>Role </td>
-        <td>Admin</td>
+        <td>{{ employee.User_RolesViewModel.RoleName }}</td>
       </tr>
       <tr>
         <td>Address </td>
-        <td>221B, Backer Streat</td>
+        <td>{{ employee.Address }}</td>
       </tr>
       <tr>
         <td>Date of Birth </td>
-        <td>24-09-1999</td>
+        <td>{{ employee.BirthDate | date: 'mediumDate' }}</td>
       </tr>
     </table>
 
@@ -79,14 +79,23 @@
     </h4>
 
     <table border="0" class="table table-hover">
-      <tr>
-        <td width="200px">Name</td>
-        <td>Hostel Managment Syatem</td>
-      </tr>
-      <tr>
-        <td>Role</td>
-        <td>Developer</td>
-      </tr>
+      <div *ngIf="employee.Project_DevelopersViewModel.length == 0">
+        <tr>
+          <td colspan="2">
+            This employee is not working in any project.
+          </td>
+        </tr>
+      </div>
+      <div *ngIf="employee.Project_DevelopersViewModel.length != 0">
+        <tr>
+          <td width="210px">Name</td>
+          <td>Hostel Managment Syatem</td>
+        </tr>
+        <tr>
+          <td>Role</td>
+          <td>Developer</td>
+        </tr>
+      </div>
     </table>
 
     <hr />
@@ -96,23 +105,27 @@
     </h4>
 
     <table border="0" class="table table-hover">
-      <tr class="bug-item">
-        <div>
-          Bug Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Margin not set
-        </div>
-        <div>
-          Bug Priority&nbsp;&nbsp;&nbsp;&nbsp;High
-        </div>
-        <hr />
-      </tr>
-      <!-- <tr>
-          <td width="100px">Bug Title</td>
-          <td>Margin not set</td>
+      <div *ngIf="employee.BugViewModels.length == 0">
+        No any active bug.
+      </div>
+      <div *ngIf="employee.BugViewModels.length != 0">
+        <tr *ngFor="let bug of employee.BugViewModels">
+          <div class="row bug-item">
+            <div class="col-md-3">
+              Bug Title
+            </div>
+            <div class="col-md-9">
+              {{ bug.Title }}
+            </div>
+            <div class="col-md-3">
+              Bug Priority
+            </div>
+            <div class="col-md-9">
+              {{ bug.Bug_PrioritiesViewModel.BugPriority }}
+            </div>
+          </div>
         </tr>
-        <tr>
-          <td>Bug Priority</td>
-          <td>High</td>
-        </tr> -->
+      </div>
     </table>
   </div>
 </div>
