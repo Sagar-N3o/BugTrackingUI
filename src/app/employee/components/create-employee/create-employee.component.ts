@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/shared/services/employee.service';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-create-employee',
@@ -32,13 +31,14 @@ export class CreateEmployeeComponent implements OnInit {
       err => {
         this.hasError = true;
       }
-    )
+    );
   }
 
   OnSubmit() {
 
     this._employeeService.CreateEmployee(this._employeeService.employeeForm.value).subscribe(
       res => {
+        this._employeeService.employeeForm.reset();
         this._router.navigate(['/admin/employee']);
       },
       err => {
@@ -67,7 +67,7 @@ export class CreateEmployeeComponent implements OnInit {
     this._employeeService.employeeForm.get('Email').setValue('n3o735@gmail.com');
     this._employeeService.employeeForm.get('Address').setValue('221B, Backer Street');
     this._employeeService.employeeForm.get('ContectNumber').setValue('735196488');
-    this._employeeService.employeeForm.get('RoleId').setValue('Admin');
+    this._employeeService.employeeForm.get('RoleId').setValue('2');
     this._employeeService.employeeForm.get('IsActive').setValue(true);
     this._employeeService.employeeForm.get('BirthDate').setValue('1999-06-24');
     this._employeeService.employeeForm.get('Experience').setValue(5);

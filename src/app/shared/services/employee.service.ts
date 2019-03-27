@@ -36,7 +36,7 @@ export class EmployeeService {
   }
 
   CreateEmployee(data: any) {
-    data.RoleId = 2;
+    
     return this._http.post<any>(this._bashURL + 'user/create', data);
   }
 }

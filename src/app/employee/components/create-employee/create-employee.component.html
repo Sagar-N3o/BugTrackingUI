@@ -62,7 +62,7 @@
         <div class="col-md-5">
           <select id="RoleId" formControlName="RoleId" class="form-control">
             <option>-- Select Role --</option>
-            <option *ngFor="let role of roles">{{ role.RoleName }}</option>
+            <option *ngFor="let role of roles" value="{{ role.Id }}">{{ role.RoleName }}</option>
           </select>
         </div>
       </div>
