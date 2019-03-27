@@ -29,9 +29,9 @@
           <td>{{ employee.Experience }} <small>(years)</small></td>
           <td>{{ employee.BugViewModels.length }}</td>
           <td>
-            <button type="button" class="btn btn-info action-button">Details</button>
-            <button type="button" class="btn btn-success action-button">Update</button>
-            <button type="button" class="btn btn-danger action-button">Delete</button>
+            <button type="button" class="btn btn-info action-button" (click)="EmployeeDetails(employee.Id)">Details</button>
+            <button type="button" class="btn btn-success action-button" (click)="UpdateEmployee(employee.Id)">Update</button>
+            <button type="button" class="btn btn-danger action-button" (click)="DeleteEmployee(employee.Id)">Delete</button>
           </td>
         </tr>
       </tbody>

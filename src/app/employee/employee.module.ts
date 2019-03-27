@@ -6,12 +6,14 @@ import { EmployeeRoutingModule } from './employee-routing/employee-routing.modul
 import { EmployeeComponent } from './components/employee/employee.component';
 import { AdminModule } from '../admin/admin.module';
 import { SharedModule } from '../shared/shared.module';
+import { DeleteEmployeeComponent } from './components/delete-employee/delete-employee.component';
 
 @NgModule({
   declarations: [
     ListEmployeeComponent,
     CreateEmployeeComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    DeleteEmployeeComponent
   ],
   imports: [
     CommonModule,

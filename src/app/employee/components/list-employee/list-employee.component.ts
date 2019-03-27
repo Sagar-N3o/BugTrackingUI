@@ -40,4 +40,8 @@ export class ListEmployeeComponent implements OnInit {
   CreateNewEmployee() {
     this._router.navigate(['admin/employee/create']);
   }
+
+  DeleteEmployee(id: number) {
+    this._router.navigate(['admin/employee/delete', id]);
+  }
 }

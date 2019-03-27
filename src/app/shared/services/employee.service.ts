@@ -36,7 +36,10 @@ export class EmployeeService {
   }
 
   CreateEmployee(data: any) {
-    
     return this._http.post<any>(this._bashURL + 'user/create', data);
+  }
+
+  DeleteEmployee(id: number) {
+    return this._http.delete<any>(this._bashURL + 'user/delete/' + id);
   }
 }
