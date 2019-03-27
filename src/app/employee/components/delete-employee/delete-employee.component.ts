@@ -31,4 +31,8 @@ export class DeleteEmployeeComponent implements OnInit {
       err => this.hasError = true
     );
   }
+
+  GoBack() {
+    this._router.navigate(['admin/employee']);
+  }
 }

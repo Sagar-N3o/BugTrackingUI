@@ -22,15 +22,14 @@ export class CreateEmployeeComponent implements OnInit {
 
     this._employeeService.GetRoles().subscribe(
       data => {
-        if(data['Success']) {
+        if(data['Success'])
           this.roles = data['Data'];
-        } else {
+        else {
           this.hasError = true;
+          this._router.navigate(['admin/employee']);
         }
       },
-      err => {
-        this.hasError = true;
-      }
+      err => this.hasError = true
     );
   }
 
@@ -74,4 +73,7 @@ export class CreateEmployeeComponent implements OnInit {
     this._employeeService.employeeForm.get('Password').setValue('pwd123');
   }
 
+  GoBack() {
+    this._router.navigate(['admin/employee'])
+  }
 }
