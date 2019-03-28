@@ -25,14 +25,14 @@ export class EmployeeService {
     'BirthDate': [''],
     'Experience': [0],
     'Password': ['']
-  })
+  });
+
+  roleForm: FormGroup = this.fb.group({
+    'RoleName': ['']
+  });
 
   GetAllEmployees() {
     return this._http.get<any>(this._bashURL + 'user/get-all');
-  }
-
-  GetRoles() {
-    return this._http.get<any>(this._bashURL + 'role/get-all');
   }
 
   CreateEmployee(data: any) {
@@ -49,5 +49,22 @@ export class EmployeeService {
 
   UpdateEmployee(id: number, data: any) {
     return this._http.put<any>(this._bashURL + 'user/update' + id, data);
+  }
+
+  CreateRole(data: any) {
+    return this._http.post<any>(this._bashURL + 'role/create', data);
+  }
+
+  GetRoles() {
+    return this._http.get<any>(this._bashURL + 'role/get-all');
+  }
+
+  GetRole(id: number) {
+    return this._http.get<any>(this._bashURL + 'role/get/' + id);
+  }
+
+  UpdateRole(id: number, data: any) {
+    data.Id = id;
+    return this._http.put(this._bashURL + 'role/edit', data);
   }
 }

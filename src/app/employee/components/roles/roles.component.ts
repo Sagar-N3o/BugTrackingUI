@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/shared/services/employee.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-roles',
@@ -12,7 +13,8 @@ export class RolesComponent implements OnInit {
   hasError: boolean = false;
 
   constructor(
-    private _employeeService: EmployeeService
+    private _employeeService: EmployeeService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -25,5 +27,13 @@ export class RolesComponent implements OnInit {
       },
       err => this.hasError = true
     );
+  }
+
+  UpdateRole(id: number) {
+    this._router.navigate(['admin/employee/roles/update', id]);
+  }
+
+  DeleteRole(id: number) {
+    this._router.navigate(['admin/employee/roles/delete', id]);
   }
 }

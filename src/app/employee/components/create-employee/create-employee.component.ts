@@ -38,9 +38,7 @@ export class CreateEmployeeComponent implements OnInit {
         this._employeeService.employeeForm.reset();
         this._router.navigate(['/admin/employee']);
       },
-      err => {
-        this.hasError = true;
-      }
+      err => this.hasError = true
     );
     // this.LogKeyValuePair(this._employeeService.employeeForm);
   }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/shared/services/employee.service';
 import { Router } from '@angular/router';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-update-employee',

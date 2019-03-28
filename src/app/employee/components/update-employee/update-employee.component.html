@@ -1,119 +1,119 @@
 <div *ngIf="hasError" class="alert alert-danger mt-20">
-    Something went wrong.! try again :( <button type="button" class="btn btn-danger btn-link"
-                                                (click)="GoBack()">Go Back</button>
-  </div>
-  
-  <div class="panel panel-default">
-    <form [formGroup]="_employeeService.employeeForm" (ngSubmit)="OnSubmit()">
-      <div class="panel-heading main-color-bg">
-        <h3 class="panel-title">
-          <span class="fa fa-plus">&nbsp;&nbsp;&nbsp;</span>Create Employee
-        </h3>
-      </div>
-      <div class="panel-body">
-        <div class="row mb-10">
-          <div class="form-group">
-            <!-- First Name -->
-            <div class="col-md-2">
-              <label for="FirstName" class="control-label">FirstName</label>
-            </div>
-            <div class="col-md-4">
-              <input type="text" id="FirstName" formControlName="FirstName" class="form-control" />
-            </div>
-  
-            <!-- Last Name -->
-            <div class="col-md-1">
-              <label for="LastName" class="control-label">LastName</label>
-            </div>
-            <div class="col-md-5">
-              <input type="text" id="LastName" formControlName="LastName" class="form-control" />
-            </div>
-          </div>
-        </div>
-  
-        <!-- Email -->
-        <div class="row mb-10">
+  Something went wrong.! try again :( <button type="button" class="btn btn-danger btn-link" (click)="GoBack()">Go
+    Back</button>
+</div>
+
+<div class="panel panel-default">
+  <form [formGroup]="_employeeService.employeeForm" (ngSubmit)="OnSubmit()">
+    <div class="panel-heading main-color-bg">
+      <h3 class="panel-title">
+        <span class="fa fa-plus">&nbsp;&nbsp;&nbsp;</span>Create Employee
+      </h3>
+    </div>
+    <div class="panel-body">
+      <div class="row mb-10">
+        <div class="form-group">
+          <!-- First Name -->
           <div class="col-md-2">
-            <label for="Email" class="control-label">Email</label>
-          </div>
-          <div class="col-md-10">
-            <input type="email" id="Email" formControlName="Email" class="form-control" />
-          </div>
-        </div>
-  
-        <!-- Address -->
-        <div class="row mb-10">
-          <div class="col-md-2">
-            <label for="Address" class="control-label">Address</label>
-          </div>
-          <div class="col-md-10">
-            <textarea id="Address" formControlName="Address" class="form-control" rows="4"></textarea>
-          </div>
-        </div>
-  
-        <div class="row mb-10">
-          <!-- Contect number -->
-          <div class="col-md-2">
-            <label for="ContectNumber" class="control-label">Contect Number</label>
+            <label for="FirstName" class="control-label">FirstName</label>
           </div>
           <div class="col-md-4">
-            <input type="text" id="ContectNumber" formControlName="ContectNumber" class="form-control" />
+            <input type="text" id="FirstName" formControlName="FirstName" class="form-control" />
           </div>
-  
-          <!-- Role Id -->
+
+          <!-- Last Name -->
           <div class="col-md-1">
-            <label for="RoleId" class="control-label">Role</label>
+            <label for="LastName" class="control-label">LastName</label>
           </div>
           <div class="col-md-5">
-            <select id="RoleId" formControlName="RoleId" class="form-control">
-              <option>-- Select Role --</option>
-              <option *ngFor="let role of roles" value="{{ role.Id }}">{{ role.RoleName }}</option>
-            </select>
-          </div>
-        </div>
-  
-        <div class="row mb-10">
-          <!-- IsActive -->
-          <div class="col-md-2">
-            <label for="IsActive" class="control-label chk-label">Is Active</label>
-          </div>
-          <div class="col-md-3">
-            <div class="checkbox">
-              <label>
-                <input id="IsActive" type="checkbox" formControlName="IsActive" />
-              </label>
-            </div>
-          </div>
-  
-          <!-- Birthdate -->
-          <div class="col-md-2">
-            <label for="BirthDate" class="control-label">Date of Birth</label>
-          </div>
-          <div class="col-md-5">
-            <input type="date" id="BirthDate" formControlName="BirthDate" class="form-control" />
-          </div>
-        </div>
-  
-        <div class="row">
-          <!-- Experience -->
-          <div class="col-md-2">
-            <label for="Experience" class="control-label">Experience<small class="text-muted">(Years)</small></label>
-          </div>
-          <div class="col-md-4">
-            <input type="text" id="Experience" formControlName="Experience" class="form-control" />
-          </div>
-  
-          <!-- Password -->
-          <div class="col-md-1">
-            <label for="Password" class="control-label">Password</label>
-          </div>
-          <div class="col-md-5">
-            <input type="password" id="Password" formControlName="Password" class="form-control" />
+            <input type="text" id="LastName" formControlName="LastName" class="form-control" />
           </div>
         </div>
       </div>
-      <div class="panel-footer text-right">
-        <input type="submit" class="btn main-color-bg" value="Submit" />&nbsp;&nbsp;
+
+      <!-- Email -->
+      <div class="row mb-10">
+        <div class="col-md-2">
+          <label for="Email" class="control-label">Email</label>
+        </div>
+        <div class="col-md-10">
+          <input type="email" id="Email" formControlName="Email" class="form-control" />
+        </div>
       </div>
-    </form>
-  </div>
+
+      <!-- Address -->
+      <div class="row mb-10">
+        <div class="col-md-2">
+          <label for="Address" class="control-label">Address</label>
+        </div>
+        <div class="col-md-10">
+          <textarea id="Address" formControlName="Address" class="form-control" rows="4"></textarea>
+        </div>
+      </div>
+
+      <div class="row mb-10">
+        <!-- Contect number -->
+        <div class="col-md-2">
+          <label for="ContectNumber" class="control-label">Contect Number</label>
+        </div>
+        <div class="col-md-4">
+          <input type="text" id="ContectNumber" formControlName="ContectNumber" class="form-control" />
+        </div>
+
+        <!-- Role Id -->
+        <div class="col-md-1">
+          <label for="RoleId" class="control-label">Role</label>
+        </div>
+        <div class="col-md-5">
+          <select id="RoleId" formControlName="RoleId" class="form-control">
+            <option>-- Select Role --</option>
+            <option *ngFor="let role of roles" value="{{ role.Id }}">{{ role.RoleName }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-10">
+        <!-- IsActive -->
+        <div class="col-md-2">
+          <label for="IsActive" class="control-label chk-label">Is Active</label>
+        </div>
+        <div class="col-md-3">
+          <div class="checkbox">
+            <label>
+              <input id="IsActive" type="checkbox" formControlName="IsActive" />
+            </label>
+          </div>
+        </div>
+
+        <!-- Birthdate -->
+        <div class="col-md-2">
+          <label for="BirthDate" class="control-label">Date of Birth</label>
+        </div>
+        <div class="col-md-5">
+          <input type="date" id="BirthDate" formControlName="BirthDate" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Experience -->
+        <div class="col-md-2">
+          <label for="Experience" class="control-label">Experience<small class="text-muted">(Years)</small></label>
+        </div>
+        <div class="col-md-4">
+          <input type="text" id="Experience" formControlName="Experience" class="form-control" />
+        </div>
+
+        <!-- Password -->
+        <div class="col-md-1">
+          <label for="Password" class="control-label">Password</label>
+        </div>
+        <div class="col-md-5">
+          <input type="password" id="Password" formControlName="Password" class="form-control" />
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer text-right">
+      <input type="submit" class="btn main-color-bg" value="Submit" />&nbsp;&nbsp;
+    </div>
+  </form>
+</div>
