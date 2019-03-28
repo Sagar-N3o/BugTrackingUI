@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectService } from 'src/app/shared/services/project.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-project',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListProjectComponent implements OnInit {
 
-  constructor() { }
+  projects: any = [];
+  hasError: boolean = false;
+
+  constructor(
+    private _projectService: ProjectService,
+    private _router: Router
+  ) { }
 
   ngOnInit() {
+    this._projectService.GetAllProjects().subscribe(
+      res => {
+        if(res['Success'])
+          this.projects = res['Data'];
+        else
+          this.hasError = true;
+      },
+      err => this.hasError = true
+    );
   }
 
 }

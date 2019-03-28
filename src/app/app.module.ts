@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { DashboardService } from './shared/services/dashboard.service';
 import { EmployeeService } from './shared/services/employee.service';
+import { ProjectService } from './shared/services/project.service';
 
 import { AppComponent } from './app.component';
 import { EmployeeModule } from './employee/employee.module';
@@ -28,7 +29,8 @@ import { ProjectModule } from './project/project.module';
   ],
   providers: [
     DashboardService,
-    EmployeeService
+    EmployeeService,
+    ProjectService
   ],
   bootstrap: [AppComponent]
 })
