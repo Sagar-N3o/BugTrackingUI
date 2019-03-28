@@ -67,4 +67,8 @@ export class EmployeeService {
     data.Id = id;
     return this._http.put(this._bashURL + 'role/edit', data);
   }
+
+  DeleteRole(id: number) {
+    return this._http.delete(this._bashURL + 'role/delete/' + id);
+  }
 }

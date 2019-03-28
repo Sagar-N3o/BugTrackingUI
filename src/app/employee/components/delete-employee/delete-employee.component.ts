@@ -27,7 +27,12 @@ export class DeleteEmployeeComponent implements OnInit {
 
   ConfirmedDeletion() {
     this._employeeService.DeleteEmployee(this.Id).subscribe(
-      res => this._router.navigate(['admin/employee']),
+      res => {
+        if(res['Success'])
+          this._router.navigate(['admin/employee'])
+        else  
+          this.hasError = true;
+      },
       err => this.hasError = true
     );
   }
