@@ -1,3 +1,63 @@
-<p>
-  create-project works!
-</p>
+<div *ngIf="hasError" class="alert alert-danger mt-20">
+  Something went wrong.! try again :( <button type="button" class="btn btn-danger btn-link"
+                                              (click)="GoBack()">Go Back</button>
+</div>
+
+<div class="panel panel-default">
+  <form [formGroup]="_projectService.projectForm" (ngSubmit)="OnSubmit()">
+    <div class="panel-heading main-color-bg">
+      <h3 class="panel-title">
+        <span class="fa fa-plus">&nbsp;&nbsp;&nbsp;</span>Create Project
+      </h3>
+    </div>
+    <div class="panel-body">
+      <!-- Project Title -->
+      <div class="row mb-10">
+        <div class="form-group">
+          <div class="col-md-2">
+            <label for="ProjectName" class="control-label">Project Title</label>
+          </div>
+          <div class="col-md-10">
+            <input type="text" id="ProjectName" class="form-control" formControlName="ProjectName" />
+          </div>
+        </div>
+      </div>
+      <!-- Project Description -->
+      <div class="row mb-10">
+        <div class="form-group">
+          <div class="col-md-2">
+            <label for="Description" class="control-label">Description</label>
+          </div>
+          <div class="col-md-10">
+            <textarea id="Description" class="form-control" formControlName="Description" rows="4"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-10">
+        <!-- Is Active -->
+        <div class="col-md-2">
+          <label for="IsActive" class="control-label chk-label">Is Active</label>
+        </div>
+        <div class="col-md-4">
+          <div class="checkbox">
+            <label>
+              <input id="IsActive" type="checkbox" formControlName="IsActive" />
+            </label>
+          </div>
+        </div>
+        <!-- Project Technology -->
+        <div class="col-md-2">
+          <label for="TechnologyId" class="control-label">Technology</label>
+        </div>
+        <div class="col-md-4">
+          <select id="TechnologyId" class="form-control" formControlName="TechnologyId">
+            <option *ngFor="let technology of technologies" value="{{ technology.Id }}">{{ technology.Name }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer text-right">
+      <input type="submit" class="btn main-color-bg" value="Create" />
+    </div>
+  </form>
+</div>

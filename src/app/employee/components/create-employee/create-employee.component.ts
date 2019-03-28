@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class CreateEmployeeComponent implements OnInit {
 
   hasError: boolean = false;
-  roles = [];
+  roles: any = [];
 
   constructor(
     private _employeeService: EmployeeService,
@@ -35,8 +35,12 @@ export class CreateEmployeeComponent implements OnInit {
   OnSubmit() {
     this._employeeService.CreateEmployee(this._employeeService.employeeForm.value).subscribe(
       res => {
-        this._employeeService.employeeForm.reset();
-        this._router.navigate(['/admin/employee']);
+        if(res['Success']) {
+          this._employeeService.employeeForm.reset();
+          this._router.navigate(['/admin/employee']);  
+        }
+        else  
+          this.hasError = true;
       },
       err => this.hasError = true
     );
