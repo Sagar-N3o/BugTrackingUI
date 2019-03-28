@@ -8,7 +8,7 @@ import { fbind } from 'q';
 })
 export class ProjectService {
 
-  private _bashURL = "http://localhost:50664/api/";
+  private _bashURL = "http://localhost:50664/api/project/";
 
   constructor(
     private _http: HttpClient,
@@ -24,14 +24,26 @@ export class ProjectService {
   });
 
   GetAllProjects() {
-    return this._http.get<any>(this._bashURL + 'project/get-all');
+    return this._http.get<any>(this._bashURL + 'get-all');
+  }
+
+  ProjectDetails(id: number) {
+    return this._http.get<any>(this._bashURL + 'get/' + id)
   }
 
   CreateProject(data: any) {
-    return this._http.post<any>(this._bashURL + 'project/create', data);
+    return this._http.post<any>(this._bashURL + 'create', data);
+  }
+
+  DeleteProject(id: number) {
+    return this._http.delete<any>(this._bashURL + 'delete/' + id);
+  }
+
+  UpdateProject(data: any) {
+    return this._http.put<any>(this._bashURL + 'update', data);
   }
 
   GetAllTechnologies() {
-    return this._http.get<any>(this._bashURL + 'project/technology/get-all');
+    return this._http.get<any>(this._bashURL + 'technology/get-all');
   }
 }

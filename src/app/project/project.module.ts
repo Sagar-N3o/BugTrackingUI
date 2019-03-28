@@ -9,6 +9,7 @@ import { ListProjectComponent } from './components/list-project/list-project.com
 import { CreateProjectComponent } from './components/create-project/create-project.component';
 import { UpdateProjectComponent } from './components/update-project/update-project.component';
 import { DeleteProjectComponent } from './components/delete-project/delete-project.component';
+import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { DeleteProjectComponent } from './components/delete-project/delete-proje
     ListProjectComponent,
     CreateProjectComponent,
     UpdateProjectComponent,
-    DeleteProjectComponent
+    DeleteProjectComponent,
+    ProjectDetailsComponent
   ],
   imports: [
     CommonModule,

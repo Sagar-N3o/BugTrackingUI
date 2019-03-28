@@ -29,4 +29,12 @@ export class ListProjectComponent implements OnInit {
     );
   }
 
+  ProjectDetails(id: number) {
+    this._router.navigate(['admin/project/details', id])
+  }
+
+  DeleteProject(id: number) {
+    this._router.navigate(['admin/project/delete', id])
+  }
+
 }
