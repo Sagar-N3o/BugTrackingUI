@@ -1,6 +1,45 @@
-<p>
-  project works!
-</p>
+<app-admin-navbar></app-admin-navbar>
 
-<router-outlet></router-outlet>
+<!-- HEADER -->
+<header id="header">
+  <div class="container">
+    <h1>
+      <span class="fa fa-tasks" aria-hidden="true"> </span> Project
+      <small>Manage project records</small>
+    </h1>
+  </div>
+</header>
+<!-- END HEADER -->
 
+<!-- BREADCRUMB -->
+<section id="breadcrumb">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="admin/dashboard">Dashboard</a></li>
+      <span> > </span>
+      <li class="active">Project</li>
+    </ol>
+  </div>
+</section>
+<!-- END BREADCRUMB -->
+
+<section id="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <app-admin-side-navbar></app-admin-side-navbar>
+        <div class="list-group">
+          <a class="list-group-item" [routerLink]="[ '/admin/project' ]">
+            List projects
+          </a>
+          <a class="list-group-item" [routerLink]="[ '/admin/project/create' ]">
+            Create new project
+          </a>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>
