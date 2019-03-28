@@ -11,6 +11,7 @@ import { EmployeeService } from './shared/services/employee.service';
 
 import { AppComponent } from './app.component';
 import { EmployeeModule } from './employee/employee.module';
+import { ProjectModule } from './project/project.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { EmployeeModule } from './employee/employee.module';
     CoreModule,
     AdminModule,
     AppRoutingModule,
+    ProjectModule,
     EmployeeModule
   ],
   providers: [

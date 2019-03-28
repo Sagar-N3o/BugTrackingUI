@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { ListEmployeeComponent } from './components/list-employee/list-employee.component';
 import { CreateEmployeeComponent } from './components/create-employee/create-employee.component';
 import { EmployeeRoutingModule } from './employee-routing/employee-routing.module';
