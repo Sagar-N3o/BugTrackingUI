@@ -28,15 +28,23 @@
     <div class="row">
       <div class="col-md-3">
         <app-admin-side-navbar></app-admin-side-navbar>
+        <div class="list-group">
+          <a class="list-group-item" [routerLink]="[ '/admin/employee' ]">
+            List employees
+          </a>
+          <a class="list-group-item" [routerLink]="[ '/admin/employee/create' ]">
+            Create new employee
+          </a>
+          <a class="list-group-item" [routerLink]="[ '/admin/employee/roles' ]">
+            Employee roles
+          </a>
+          <a class="list-group-item" [routerLink]="[ '/admin/employee/roles/create' ]">
+            Create new role
+          </a>
+        </div>
       </div>
       <div class="col-md-9">
         <router-outlet></router-outlet>
-        <!-- <div *ngIf="_router.url == '/admin/employee'">
-          <app-list-employee></app-list-employee>
-        </div>
-        <div *ngIf="_router.url == '/admin/employee/create'">
-          <app-create-employee></app-create-employee>
-        </div> -->
       </div>
     </div>
   </div>

@@ -9,6 +9,10 @@ import { SharedModule } from '../shared/shared.module';
 import { DeleteEmployeeComponent } from './components/delete-employee/delete-employee.component';
 import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
 import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
+import { RolesComponent } from './components/roles/roles.component';
+import { CreateRoleComponent } from './components/create-role/create-role.component';
+import { DeleteRoleComponent } from './components/delete-role/delete-role.component';
+import { UpdateRoleComponent } from './components/update-role/update-role.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { UpdateEmployeeComponent } from './components/update-employee/update-emp
     EmployeeComponent,
     DeleteEmployeeComponent,
     EmployeeDetailsComponent,
-    UpdateEmployeeComponent
+    UpdateEmployeeComponent,
+    RolesComponent,
+    CreateRoleComponent,
+    DeleteRoleComponent,
+    UpdateRoleComponent
   ],
   imports: [
     CommonModule,
