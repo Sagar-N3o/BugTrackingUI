@@ -25,6 +25,7 @@
           <td>{{ project.BugViewModels.length }}</td>
           <td>
             <button type="button" class="btn btn-info action-button" (click)="ProjectDetails(project.Id)">Details</button>
+            <button type="button" class="btn btn-success action-button" (click)="UpdateProject(project.Id)">Update</button>
             <button type="button" class="btn btn-danger action-button" (click)="DeleteProject(project.Id)">Delete</button>
           </td>
         </tr>
@@ -36,7 +37,6 @@
           </td>
         </tr>
       </tbody>
-
     </table>
   </div>
 </div>

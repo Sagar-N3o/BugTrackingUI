@@ -6,8 +6,7 @@
   </div>
   <div class="panel-body">
     <div class="row text-center">
-      <div class="col-md-3"></div>
-      <div class="col-md-3">
+      <div class="col-md-3 col-md-offset-3">
         <div class="card">
           <h4 class="card-title">
             <span class="fa fa-2x fa-bug"></span>
@@ -16,7 +15,6 @@
             {{ employee.BugViewModels.length }} Active bugs
           </div>
         </div>
-
       </div>
       <div class="col-md-3">
         <div class="card">
@@ -27,9 +25,7 @@
             14 project completed
           </div>
         </div>
-
       </div>
-      <div class="col-md-3"></div>
     </div>
 
     <hr />
@@ -37,6 +33,7 @@
     <h4>
       <b>Personal Details</b>
     </h4>
+
     <table border="0" class="table table-hover">
       <tr>
         <td width="210px">Name</td>
@@ -79,23 +76,29 @@
     </h4>
 
     <table border="0" class="table table-hover">
-      <div *ngIf="employee.Project_DevelopersViewModel.length == 0">
-        <tr>
-          <td colspan="2">
-            This employee is not working in any project.
-          </td>
-        </tr>
-      </div>
-      <div *ngIf="employee.Project_DevelopersViewModel.length != 0">
-        <tr>
-          <td width="210px">Name</td>
-          <td>Hostel Managment Syatem</td>
-        </tr>
-        <tr>
-          <td>Role</td>
-          <td>Developer</td>
-        </tr>
-      </div>
+      <tr *ngIf="employee.Project_DevelopersViewModel.length == 0">
+        <td>
+          This employee is not working in any project.
+        </td>
+      </tr>
+      <tr *ngFor="let project of employee.Project_DevelopersViewModel">
+        <td>
+          <div class="row bug-item">
+            <div class="col-md-3">
+              Project Title
+            </div>
+            <div class="col-md-9">
+              {{ project.ProjectViewModel.ProjectName }}
+            </div>
+            <div class="col-md-3">
+              Role
+            </div>
+            <div class="col-md-9">
+              {{ employee.User_RolesViewModel.RoleName }}
+            </div>
+          </div>
+        </td>
+      </tr>
     </table>
 
     <hr />
@@ -105,11 +108,13 @@
     </h4>
 
     <table border="0" class="table table-hover">
-      <div *ngIf="employee.BugViewModels.length == 0">
-        No any active bug.
-      </div>
-      <div *ngIf="employee.BugViewModels.length != 0">
-        <tr *ngFor="let bug of employee.BugViewModels">
+      <tr *ngIf="employee.BugViewModels.length == 0">
+        <td>
+          No any active bug.
+        </td>
+      </tr>
+      <tr *ngFor="let bug of employee.BugViewModels">
+        <td>
           <div class="row bug-item">
             <div class="col-md-3">
               Bug Title
@@ -117,15 +122,9 @@
             <div class="col-md-9">
               {{ bug.Title }}
             </div>
-            <div class="col-md-3">
-              Bug Priority
-            </div>
-            <div class="col-md-9">
-              {{ bug.Bug_PrioritiesViewModel.BugPriority }}
-            </div>
           </div>
-        </tr>
-      </div>
+        </td>
+      </tr>
     </table>
   </div>
 </div>

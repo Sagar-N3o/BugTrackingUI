@@ -37,4 +37,7 @@ export class ListProjectComponent implements OnInit {
     this._router.navigate(['admin/project/delete', id])
   }
 
+  UpdateProject(id: number) {
+    this._router.navigate(['admin/project/update', id]);
+  }
 }

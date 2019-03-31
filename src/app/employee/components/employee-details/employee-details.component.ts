@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class EmployeeDetailsComponent implements OnInit {
 
-  employee = {};
+  employee: any = {};
   Id: number = 0;
   hasError: boolean = false;
 
@@ -22,10 +22,8 @@ export class EmployeeDetailsComponent implements OnInit {
     this.Id = Number.parseInt(this._router.url.split('/')[4]);
     this._employeeService.EmployeeDetails(this.Id).subscribe(
       res => {
-        if(res['Success']) {
-          console.log(res['Data']);
+        if(res['Success'])
           this.employee = res['Data'];
-        }
         else
           this.hasError = true;
       },

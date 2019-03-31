@@ -1,3 +1,110 @@
-<p>
-  project-details works!
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading main-color-bg">
+    <h3 class="panel-title">
+      <span class="fa fa-tasks">&nbsp;&nbsp;&nbsp;</span>Project Details
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div class="row text-center">
+      <div class="col-md-3 col-md-offset-3">
+        <div class="card">
+          <h4 class="card-title">
+            <span class="fa fa-2x fa-bug"></span>
+          </h4>
+          <div class="card-container">
+            {{ project.BugViewModels.length }} Active bugs
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <h4 class="card-title">
+            <span class="fa fa-2x fa-user"></span>
+          </h4>
+          <div class="card-container">
+            {{ project.Project_DeveloperViewModels.length }} Employee working
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <h4>
+      <b>Details</b>
+    </h4>
+
+    <table border="0" class="table table-hover">
+      <tr>
+        <td width="210px">Title</td>
+        <td>{{ project.ProjectName }}</td>
+      </tr>
+      <tr>
+        <td>Description</td>
+        <td>{{ project.Description }}</td>
+      </tr>
+      <tr>
+        <td>Is Active</td>
+        <td>{{ project.IsActive }}</td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td>{{ project.Project_StatusViewModel.ProjectStatus }}</td>
+      </tr>
+      <tr>
+        <td>Technology</td>
+        <td>{{ project.Project_TechnologiesViewModel.Name }}</td>
+      </tr>
+    </table>
+
+    <hr />
+
+    <h4>
+      <b>Current Employees</b>
+    </h4>
+
+    <table border="0" class="table table-hover">
+      <tr *ngIf="project.Project_DeveloperViewModels.length == 0">
+        <td>
+          No one is working in this project.
+        </td>
+      </tr>
+      <tr *ngFor="let employee of project.Project_DeveloperViewModels">
+        <td>
+          <div class="row employee-item">
+            <div class="col-md-3">
+              Name
+            </div>
+            <div class="col-md-9">
+              {{ employee.UserViewModel.FirstName }} {{ employee.UserViewModel.LastName }}  
+            </div>
+            <div class="col-md-3">
+              Email
+            </div>
+            <div class="col-md-9">
+              {{ employee.UserViewModel.Email }}  
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <hr />
+
+    <h4>
+      <b>Active Bugs</b>
+    </h4>
+
+    <table border="0" class="table table-hover">
+      <tr *ngIf="project.BugViewModels.length == 0">
+        <td colspan="2">
+          No any active bug.
+        </td>
+      </tr>
+      <tr *ngFor="let bug of project.BugViewModels">
+        <td width="210px">Bug Title</td>
+        <td>{{ bug.Title }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
