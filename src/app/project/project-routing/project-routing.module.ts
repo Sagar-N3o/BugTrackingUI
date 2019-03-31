@@ -11,6 +11,10 @@ import { CreateTechnologyComponent } from '../components/create-technology/creat
 import { ListTechnologyComponent } from '../components/list-technology/list-technology.component';
 import { DeleteTechnologyComponent } from '../components/delete-technology/delete-technology.component';
 import { TechnologyDetailsComponent } from '../components/technology-details/technology-details.component';
+import { ListProjectStatusComponent } from '../components/list-project-status/list-project-status.component';
+import { CreateProjectStatusComponent } from '../components/create-project-status/create-project-status.component';
+import { DeleteProjectStatusComponent } from '../components/delete-project-status/delete-project-status.component';
+import { ProjectStatusDetailsComponent } from '../components/project-status-details/project-status-details.component';
 
 const routes: Routes = [
   {
@@ -26,6 +30,14 @@ const routes: Routes = [
           { path: 'create', component: CreateTechnologyComponent },
           { path: 'delete/:id', component: DeleteTechnologyComponent },
           { path: 'details/:id', component: TechnologyDetailsComponent }
+        ]
+      },
+      {
+        path: 'status', children: [
+          { path: '', component: ListProjectStatusComponent },
+          { path: 'create', component: CreateProjectStatusComponent },
+          { path: 'delete/:id', component: DeleteProjectStatusComponent },
+          { path: 'details/:id', component: ProjectStatusDetailsComponent }
         ]
       }
     ]

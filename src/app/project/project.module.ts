@@ -14,6 +14,10 @@ import { CreateTechnologyComponent } from './components/create-technology/create
 import { ListTechnologyComponent } from './components/list-technology/list-technology.component';
 import { DeleteTechnologyComponent } from './components/delete-technology/delete-technology.component';
 import { TechnologyDetailsComponent } from './components/technology-details/technology-details.component';
+import { ListProjectStatusComponent } from './components/list-project-status/list-project-status.component';
+import { CreateProjectStatusComponent } from './components/create-project-status/create-project-status.component';
+import { DeleteProjectStatusComponent } from './components/delete-project-status/delete-project-status.component';
+import { ProjectStatusDetailsComponent } from './components/project-status-details/project-status-details.component';
 
 
 @NgModule({
@@ -27,7 +31,11 @@ import { TechnologyDetailsComponent } from './components/technology-details/tech
     CreateTechnologyComponent,
     ListTechnologyComponent,
     DeleteTechnologyComponent,
-    TechnologyDetailsComponent
+    TechnologyDetailsComponent,
+    ListProjectStatusComponent,
+    CreateProjectStatusComponent,
+    DeleteProjectStatusComponent,
+    ProjectStatusDetailsComponent
   ],
   imports: [
     CommonModule,

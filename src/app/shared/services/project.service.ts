@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { fbind } from 'q';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +27,11 @@ export class ProjectService {
   technologyForm: FormGroup = this.fb.group({
     'Name': [''],
     'Description': ['']    
+  });
+
+  //Status Form
+  statusForm: FormGroup = this.fb.group({
+    'ProjectStatus': ['']
   });
 
 
@@ -76,5 +80,17 @@ export class ProjectService {
   //Status
   GetAllStatus() {
     return this._http.get<any>(this._bashURL + 'status/get-all');
+  }
+
+  StatusDetails(id: number) {
+    return this._http.get<any>(this._bashURL + 'status/get/' + id);
+  }
+
+  CreateStatus(data: any) {
+    return this._http.post<any>(this._bashURL + 'status/create', data);
+  }
+
+  DeleteStatus(id: number) {
+    return this._http.delete<any>(this._bashURL + 'status/delete/' + id);
   }
 }

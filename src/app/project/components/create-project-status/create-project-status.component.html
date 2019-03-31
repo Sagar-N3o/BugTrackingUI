@@ -1,0 +1,29 @@
+<div *ngIf="hasError" class="alert alert-danger mt-20">
+  Something went wrong.! try again :( <button type="button" class="btn btn-danger btn-link" (click)="GoBack()">Go
+    Back</button>
+</div>
+
+<div class="panel panel-default">
+  <form [formGroup]="_projectService.statusForm" (ngSubmit)="OnSubmit()">
+    <div class="panel-heading main-color-bg">
+      <h3 class="panel-title">
+        <span class="fa fa-plus">&nbsp;&nbsp;&nbsp;</span>Create Status
+      </h3>
+    </div>
+    <div class="panel-body">
+      <div class="row mb-10">
+        <div class="form-group">
+          <div class="col-md-2">
+            <label for="ProjectStatus" class="control-label">Name</label>
+          </div>
+          <div class="col-md-10">
+            <input type="text" id="ProjectStatus" class="form-control" formControlName="ProjectStatus" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer text-right">
+      <input type="submit" class="btn main-color-bg" value="Create" />
+    </div>
+  </form>
+</div>

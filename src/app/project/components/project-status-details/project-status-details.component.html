@@ -6,7 +6,7 @@
 <div class="panel panel-default">
   <div class="panel-heading main-color-bg">
     <h3 class="panel-title">
-      <span class="fa fa-tasks">&nbsp;&nbsp;&nbsp;</span>Technology Details
+      <span class="fa fa-info-circle">&nbsp;&nbsp;&nbsp;</span>Status Details
     </h3>
   </div>
   <div class="panel-body">
@@ -17,7 +17,7 @@
             <span class="fa fa-2x fa-tasks"></span>
           </h4>
           <div class="card-container">
-            {{ technology.ProjectViewModels.length }} Projects
+            {{ status.ProjectViewModels.length }} Projects
           </div>
         </div>
       </div>
@@ -32,14 +32,10 @@
     <table border="0" class="table table-hover">
       <tr>
         <td width="210px">Name</td>
-        <td>{{ technology.Name }}</td>
-      </tr>
-      <tr>
-        <td>Description</td>
-        <td>{{ technology.Description }}</td>
+        <td>{{ status.ProjectStatus }}</td>
       </tr>
     </table>
-    
+
     <hr />
 
     <h4>
@@ -47,12 +43,12 @@
     </h4>
 
     <table border="0" class="table table-hover">
-      <tr *ngIf="technology.ProjectViewModels.length == 0">
+      <tr *ngIf="status.ProjectViewModels.length == 0">
         <td>
-          No project is under development under this technology.
+          No project is having this status.
         </td>
       </tr>
-      <tr *ngFor="let project of technology.ProjectViewModels">
+      <tr *ngFor="let project of status.ProjectViewModels">
         <td>
           <div class="row project-item">
             <div class="col-md-3">
