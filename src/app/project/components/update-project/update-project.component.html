@@ -1,3 +1,73 @@
-<p>
-  update-project works!
-</p>
+<div *ngIf="hasError" class="alert alert-danger mt-20">
+  Something went wrong.! try again :( <button type="button" class="btn btn-danger btn-link" (click)="GoBack()">Go
+    Back</button>
+</div>
+
+<div class="panel panel-default">
+  <form [formGroup]="_projectService.projectForm" (ngSubmit)="OnSubmit()">
+    <div class="panel-heading main-color-bg">
+      <h3 class="panel-title">
+        <span class="fa fa-refresh">&nbsp;&nbsp;&nbsp;</span>Update Project Details
+      </h3>
+    </div>
+    <div class="panel-body">
+      <!-- Project Title -->
+      <div class="row mb-10">
+        <div class="form-group">
+          <div class="col-md-2">
+            <label for="ProjectName" class="control-label">Project Title</label>
+          </div>
+          <div class="col-md-10">
+            <input type="text" id="ProjectName" class="form-control" formControlName="ProjectName" />
+          </div>
+        </div>
+      </div>
+      <!-- Project Description -->
+      <div class="row mb-10">
+        <div class="form-group">
+          <div class="col-md-2">
+            <label for="Description" class="control-label">Description</label>
+          </div>
+          <div class="col-md-10">
+            <textarea id="description" class="form-control" formControlName="Description" rows="4"></textarea>
+          </div>
+        </div>
+      </div>
+      <!-- Is Active -->
+      <div class="row mb-10">
+        <div class="col-md-2">
+          <label for="IsActive" class="control-label chk-label">Is Active</label>
+        </div>
+        <div class="col-md-10">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="IsActive" formControlName="IsActive" />
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-10">
+        <!-- Project Technology -->
+        <div class="col-md-2">
+          <label for="TechnologyId" class="control-label">Technology</label>
+        </div>
+        <div class="col-md-4">
+          <select id="TechnologyId" class="form-control" formControlName="TechnologyId">
+            <option *ngFor="let technology of technologies" value="{{ technology.Id }}">{{ technology.Name }}</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="ProjectStatusId" class="control-label">Status</label>
+        </div>
+        <div class="col-md-4">
+          <select id="ProjectStatusId" class="form-control" formControlName="ProjectStatusId">
+            <option *ngFor="let status of projectStatues" value="{{ status.Id }}">{{ status.ProjectStatus }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer text-right">
+      <input type="submit" class="btn main-color-bg" value="Update" />
+    </div>
+  </form>
+</div>

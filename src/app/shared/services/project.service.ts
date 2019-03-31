@@ -20,7 +20,7 @@ export class ProjectService {
     'Description': [''],
     'TechnologyId': [''],
     'IsActive': [false],
-    'ProjectStatusId': [3]
+    'ProjectStatusId': ['3']
   });
 
   GetAllProjects() {
@@ -32,6 +32,7 @@ export class ProjectService {
   }
 
   CreateProject(data: any) {
+    // console.log(data);
     return this._http.post<any>(this._bashURL + 'create', data);
   }
 
@@ -39,11 +40,16 @@ export class ProjectService {
     return this._http.delete<any>(this._bashURL + 'delete/' + id);
   }
 
-  UpdateProject(data: any) {
+  UpdateProject(id: any, data: any) {
+    data.Id = id;
     return this._http.put<any>(this._bashURL + 'update', data);
   }
 
   GetAllTechnologies() {
     return this._http.get<any>(this._bashURL + 'technology/get-all');
+  }
+
+  GetAllStatus() {
+    return this._http.get<any>(this._bashURL + 'status/get-all');
   }
 }
