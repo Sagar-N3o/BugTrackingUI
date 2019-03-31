@@ -36,15 +36,10 @@ export class CreateProjectComponent implements OnInit {
           this._projectService.projectForm.reset();
           this._router.navigate(['admin/project']);
         }
-        else {
+        else
           this.hasError = true;
-          console.log(res['Data']);
-        }
       },
-      err => {
-        this.hasError = true;
-        console.log(err);
-      }
+      err => this.hasError = true
     );
   }
 

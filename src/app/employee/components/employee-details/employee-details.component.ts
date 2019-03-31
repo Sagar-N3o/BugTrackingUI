@@ -31,4 +31,7 @@ export class EmployeeDetailsComponent implements OnInit {
     );
   }
 
+  GoBack() {
+    this._router.navigate(['admin/employee']);
+  }
 }

@@ -30,4 +30,8 @@ export class ProjectDetailsComponent implements OnInit {
       err => this.hasError = true
     );
   }
+
+  GoBack() {
+    this._router.navigate(['admin/project']);
+  }
 }

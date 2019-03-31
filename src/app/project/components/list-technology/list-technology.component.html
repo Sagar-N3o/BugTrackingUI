@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+  <div class="panel-heading main-color-bg">
+    <h3 class="panel-title">
+      <span class="fa fa-desktop"> &nbsp;&nbsp;&nbsp;</span>Technologies
+    </h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover text-center">
+      <thead>
+        <tr>
+          <td><b>Name</b></td>
+          <td><b>Description</b></td>
+          <td><b>Total Projects</b></td>
+          <td><b>Actions</b></td>
+        </tr>
+      </thead>
+      <tbody *ngIf="!hasError">
+        <tr *ngFor="let technology of technologies">
+          <td>{{ technology.Name }}</td>
+          <td>{{ technology.Description | slice : 0 : 40 }}</td>
+          <td>{{ technology.ProjectViewModels.length }}</td>
+          <td>
+            <button type="button" class="btn btn-info action-button" (click)="TechnologyDetails(technology.Id)">Details</button>
+            <button type="button" class="btn btn-danger action-button" (click)="DeleteTechnology(technology.Id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="hasError">
+        <tr>
+          <td colspan="6">
+            oops..! Could not load the data.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

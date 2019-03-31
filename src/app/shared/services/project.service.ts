@@ -15,6 +15,7 @@ export class ProjectService {
     private fb: FormBuilder
   ) { }
 
+  // Project Form
   projectForm: FormGroup = this.fb.group({
     'ProjectName': [''],
     'Description': [''],
@@ -23,6 +24,14 @@ export class ProjectService {
     'ProjectStatusId': ['3']
   });
 
+  // Technology Form
+  technologyForm: FormGroup = this.fb.group({
+    'Name': [''],
+    'Description': ['']    
+  });
+
+
+  // Project
   GetAllProjects() {
     return this._http.get<any>(this._bashURL + 'get-all');
   }
@@ -45,10 +54,26 @@ export class ProjectService {
     return this._http.put<any>(this._bashURL + 'update', data);
   }
 
+
+  // Technologies
   GetAllTechnologies() {
     return this._http.get<any>(this._bashURL + 'technology/get-all');
   }
 
+  TechnologyDetails(id: number) {
+    return this._http.get<any>(this._bashURL + 'technology/get/' + id);
+  }
+
+  CreateTechnology(data: any) {
+    return this._http.post<any>(this._bashURL + 'technology/create', data);
+  }
+
+  DeleteTechnology(id: number) {
+    return this._http.delete<any>(this._bashURL + 'technology/delete/' + id);
+  }
+
+  
+  //Status
   GetAllStatus() {
     return this._http.get<any>(this._bashURL + 'status/get-all');
   }

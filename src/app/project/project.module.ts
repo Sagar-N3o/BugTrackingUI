@@ -10,6 +10,10 @@ import { CreateProjectComponent } from './components/create-project/create-proje
 import { UpdateProjectComponent } from './components/update-project/update-project.component';
 import { DeleteProjectComponent } from './components/delete-project/delete-project.component';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
+import { CreateTechnologyComponent } from './components/create-technology/create-technology.component';
+import { ListTechnologyComponent } from './components/list-technology/list-technology.component';
+import { DeleteTechnologyComponent } from './components/delete-technology/delete-technology.component';
+import { TechnologyDetailsComponent } from './components/technology-details/technology-details.component';
 
 
 @NgModule({
@@ -19,7 +23,11 @@ import { ProjectDetailsComponent } from './components/project-details/project-de
     CreateProjectComponent,
     UpdateProjectComponent,
     DeleteProjectComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    CreateTechnologyComponent,
+    ListTechnologyComponent,
+    DeleteTechnologyComponent,
+    TechnologyDetailsComponent
   ],
   imports: [
     CommonModule,
