@@ -15,6 +15,7 @@ import { ListProjectStatusComponent } from '../components/list-project-status/li
 import { CreateProjectStatusComponent } from '../components/create-project-status/create-project-status.component';
 import { DeleteProjectStatusComponent } from '../components/delete-project-status/delete-project-status.component';
 import { ProjectStatusDetailsComponent } from '../components/project-status-details/project-status-details.component';
+import { AddDeveloperComponent } from '../components/add-developer/add-developer.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: 'details/:id', component: ProjectDetailsComponent },
       { path: 'update/:id', component: UpdateProjectComponent },
       { path: 'delete/:id', component: DeleteProjectComponent },
+      { path: 'developers/manage/:id', component: AddDeveloperComponent },
       {
         path: 'technology', children: [
           { path: '', component: ListTechnologyComponent },

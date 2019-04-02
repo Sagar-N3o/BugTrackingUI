@@ -11,7 +11,6 @@
           <td><b>Name</b></td>
           <td><b>Technology</b></td>
           <td><b>Status</b></td>
-          <td><b>Is Active</b></td>
           <td><b>Current Bugs</b></td>
           <td><b>Actions</b></td>
         </tr>
@@ -21,9 +20,9 @@
           <td>{{ project.ProjectName }}</td>
           <td>{{ project.Project_TechnologiesViewModel.Name }}</td>
           <td>{{ project.Project_StatusViewModel.ProjectStatus }}</td>
-          <td>{{ project.IsActive }}</td>
           <td>{{ project.BugViewModels.length }}</td>
           <td>
+            <button type="button" class="btn btn-primary action-button" (click)="ManageDevelopers(project.Id)">Manage Developers</button>
             <button type="button" class="btn btn-info action-button" (click)="ProjectDetails(project.Id)">Details</button>
             <button type="button" class="btn btn-success action-button" (click)="UpdateProject(project.Id)">Update</button>
             <button type="button" class="btn btn-danger action-button" (click)="DeleteProject(project.Id)">Delete</button>

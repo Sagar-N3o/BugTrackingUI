@@ -18,6 +18,7 @@ import { ListProjectStatusComponent } from './components/list-project-status/lis
 import { CreateProjectStatusComponent } from './components/create-project-status/create-project-status.component';
 import { DeleteProjectStatusComponent } from './components/delete-project-status/delete-project-status.component';
 import { ProjectStatusDetailsComponent } from './components/project-status-details/project-status-details.component';
+import { AddDeveloperComponent } from './components/add-developer/add-developer.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ProjectStatusDetailsComponent } from './components/project-status-detai
     ListProjectStatusComponent,
     CreateProjectStatusComponent,
     DeleteProjectStatusComponent,
-    ProjectStatusDetailsComponent
+    ProjectStatusDetailsComponent,
+    AddDeveloperComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,53 @@
+<div *ngIf="hasError" class="alert alert-danger mt-20">
+  Something went wrong.! try again :( <button type="button" class="btn btn-danger btn-link" (click)="GoBack()">Go
+    Back</button>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading main-color-bg">
+    <h3 class="panel-title">
+      <span class="fa fa-cog">&nbsp;&nbsp;&nbsp;</span>Manage project developers
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <select id="ddlAdd" class="form-control">
+          <option *ngFor="let employee of employees" value="{{ employee.Id }}"> 
+            {{ employee.FirstName }} {{ employee.LastName }}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <input type="button" class="btn main-color-bg" value="Add" (click)="AddEmployee()" />
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+      <div class="col-md-6">
+        <select id="ddlRemove" class="form-control">
+          <option *ngFor="let developer of projectDevelopers" value="{{ developer.UserViewModel.Id }}">
+            {{ developer.UserViewModel.FirstName }} {{ developer.UserViewModel.LastName }}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <input type="button" class="btn main-color-bg" value="Remove" (click)="RemoveEmployee()" />
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="list-group">
+          <div *ngFor="let developer of projectDevelopers" class="list-group-item">
+            {{ developer.UserViewModel.FirstName }} {{ developer.UserViewModel.LastName }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

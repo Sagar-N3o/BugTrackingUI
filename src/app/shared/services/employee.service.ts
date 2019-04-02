@@ -35,6 +35,10 @@ export class EmployeeService {
     return this._http.get<any>(this._bashURL + 'user/get-all');
   }
 
+  getFreeEmployees() {
+    return this._http.get<any>(this._bashURL + 'user/get-free');
+  }
+
   CreateEmployee(data: any) {
     return this._http.post<any>(this._bashURL + 'user/create', data);
   }

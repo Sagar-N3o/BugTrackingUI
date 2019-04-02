@@ -45,7 +45,6 @@ export class ProjectService {
   }
 
   CreateProject(data: any) {
-    // console.log(data);
     return this._http.post<any>(this._bashURL + 'create', data);
   }
 
@@ -56,6 +55,20 @@ export class ProjectService {
   UpdateProject(id: any, data: any) {
     data.Id = id;
     return this._http.put<any>(this._bashURL + 'update', data);
+  }
+
+
+  // Developers
+  GetAllDevelopers(id: number) {
+    return this._http.get<any>(this._bashURL + 'developers/get/' + id);
+  }
+
+  AddDevelopers(data: any) {
+    return this._http.post<any>(this._bashURL + 'developers/add', data);
+  }
+
+  RemoveDeveloper(projId: number, devId: number) {
+    return this._http.delete<any>(this._bashURL + 'developers/remove/' + projId + '/' + devId);
   }
 
 
