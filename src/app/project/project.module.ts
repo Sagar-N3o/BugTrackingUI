@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { AdminModule } from '../admin/admin.module';
 import { SharedModule } from '../shared/shared.module';
 import { ProjectRoutingModule } from './project-routing/project-routing.module';

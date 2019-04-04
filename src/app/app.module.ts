@@ -13,6 +13,8 @@ import { ProjectService } from './shared/services/project.service';
 import { AppComponent } from './app.component';
 import { EmployeeModule } from './employee/employee.module';
 import { ProjectModule } from './project/project.module';
+import { BugModule } from './bug/bug.module';
+import { BugRoutingModule } from './bug/bug-routing/bug-routing.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ProjectModule } from './project/project.module';
     AdminModule,
     AppRoutingModule,
     ProjectModule,
-    EmployeeModule
+    EmployeeModule,
+    BugModule,
+    BugRoutingModule
   ],
   providers: [
     DashboardService,

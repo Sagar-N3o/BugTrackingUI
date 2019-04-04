@@ -1,0 +1,54 @@
+<app-admin-navbar></app-admin-navbar>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="container">
+    <h1>
+      <span class="fa fa-bug" aria-hidden="true"> </span> Bug
+      <small>Manage Bugs</small>
+    </h1>
+  </div>
+</header>
+<!-- END HEADER -->
+
+<!-- BREADCRUMB -->
+<section id="breadcrumb">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="admin/dashboard">Dashboard</a></li>
+      <span> > </span>
+      <li class="active">Bug</li>
+    </ol>
+  </div>
+</section>
+<!-- END BREADCRUMB -->
+
+<section id="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <app-admin-side-navbar></app-admin-side-navbar>
+        <div class="list-group">
+          <a class="list-group-item" [routerLink]="[ '/admin/bug' ]">
+            List Bugs
+          </a>
+          <a class="list-group-item" [routerLink]="[ '/admin/bug/status' ]">
+            List all bug Status
+          </a>
+          <a class="list-group-item" [routerLink]="[ '/admin/bug/status/create' ]">
+            Create new Status
+          </a>
+          <a class="list-group-item" [routerLink]="[ '/admin/bug/priority' ]">
+            List all bug Priority
+          </a>
+          <a class="list-group-item" [routerLink]="[ '/admin/bug/priority/create' ]">
+            Create new Priority
+          </a>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>

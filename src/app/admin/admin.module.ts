@@ -8,15 +8,13 @@ import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.com
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminSideNavbarComponent } from './components/admin-side-navbar/admin-side-navbar.component';
 import { AdminSystemOverviewComponent } from './components/admin-system-overview/admin-system-overview.component';
-import { AdminBugComponent } from './components/admin-bug/admin-bug.component';
 
 @NgModule({
   declarations: [
   AdminNavbarComponent,
   AdminDashboardComponent,
   AdminSideNavbarComponent,
-  AdminSystemOverviewComponent,
-  AdminBugComponent
+  AdminSystemOverviewComponent
   ],
   imports: [
     SharedModule,
