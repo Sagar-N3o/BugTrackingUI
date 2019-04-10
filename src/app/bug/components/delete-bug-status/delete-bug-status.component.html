@@ -1,3 +1,16 @@
-<p>
-  delete-bug-status works!
-</p>
+<div *ngIf="hasError" class="alert alert-danger mt-20">
+  Something went wrong :( <button class="btn btn-danger btn-link" (click)="GoBack()">Go Back</button>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading main-color-bg">
+    <h3 class="panel-title">
+        <span class="fa fa-trash">&nbsp;&nbsp;&nbsp;</span>Delete Bug Status
+    </h3>
+  </div>
+  <div class="panel-body">
+      Are you sure you want to delete Bug Status with Id: {{ Id }} ?<br />
+      <button type="button" class="btn btn-success mr-10 mt-20" (click)="ConfirmedDeletion()">Yes</button>
+      <button type="button" class="btn btn-danger mt-20" (click)="NotConfirmedDeletion()">No</button>  
+  </div>
+</div>

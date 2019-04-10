@@ -1,3 +1,71 @@
-<p>
-  bug-status-details works!
-</p>
+<div *ngIf="hasError" class="alert alert-danger mt-20">
+  Something went wrong.! try again :( <button type="button" class="btn btn-danger btn-link" (click)="GoBack()">Go
+    Back</button>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading main-color-bg">
+    <h3 class="panel-title">
+      <span class="fa fa-info-circle">&nbsp;&nbsp;&nbsp;</span>Bug Status Details
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div class="row text-center">
+      <div class="col-md-3 col-md-offset-4">
+        <div class="card">
+          <h4 class="card-title">
+            <span class="fa fa-2x fa-bug"></span>
+          </h4>
+          <div class="card-container">
+            {{ status.BugViewModels.length }} Bugs
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <h4>
+      <b>Details</b>
+    </h4>
+
+    <table class="table table-hover">
+      <tr>
+        <td width="210px">Name</td>
+        <td>{{ status.BugStatus }}</td>
+      </tr>
+    </table>
+
+    <hr />
+
+    <h4>
+      <b>Current Bugs</b>
+    </h4>
+
+    <table class="table table-hover">
+      <tr *ngIf="status.BugViewModels.length == 0">
+        <td>
+          No Bug found having this status.
+        </td>
+      </tr>
+      <tr *ngFor="let bug of status.BugViewModels">
+        <td>
+          <div class="row bug-item">
+            <div class="col-md-2">
+              <b>Bug Title</b>
+            </div>
+            <div class="col-md-4">
+              {{ bug.Title }}
+            </div>
+            <div class="col-md-2">
+              <b>Project Name</b>
+            </div>
+            <div class="col-md-4">
+              {{ bug.ProjectViewModel.ProjectName }}
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

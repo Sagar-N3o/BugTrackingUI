@@ -1,3 +1,35 @@
-<p>
-  list-bug-status works!
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading main-color-bg">
+    <h3 class="panel-title">
+      <span class="fa fa-info-circle"> &nbsp;&nbsp;&nbsp;</span>Bug Status
+    </h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover text-center">
+      <thead>
+        <tr>
+          <td><b>Bug Status Title</b></td>
+          <td><b>Total Bugs</b></td>
+          <td><b>Actions</b></td>
+        </tr>
+      </thead>
+      <tbody *ngIf="!hasError">
+        <tr *ngFor="let status of statusList">
+          <td>{{ status.BugStatus }}</td>
+          <td>{{ status.BugViewModels.length }}</td>
+          <td>
+            <button type="button" class="btn btn-info action-button" (click)="StatusDetails(status.Id)">Details</button>
+            <button type="button" class="btn btn-danger action-button" (click)="DeleteStatus(status.Id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="hasError">
+        <tr>
+          <td colspan="3">
+            oops..! Could not load the data.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

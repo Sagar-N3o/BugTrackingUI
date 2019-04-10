@@ -36,4 +36,8 @@ export class DeleteProjectStatusComponent implements OnInit {
       err => this.hasError = true
     );
   }
+
+  GoBack() {
+    this._router.navigate(['admin/project/status']);
+  }
 }
