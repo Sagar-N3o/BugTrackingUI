@@ -1,3 +1,35 @@
-<p>
-  list-bug-priority works!
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading main-color-bg">
+    <h3 class="panel-title">
+      <span class="fa fa-info-circle"> &nbsp;&nbsp;&nbsp;</span>Project Priority
+    </h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover text-center">
+      <thead>
+        <tr>
+          <td><b>Bug Priority Title</b></td>
+          <td><b>Total Bugs</b></td>
+          <td><b>Actions</b></td>
+        </tr>
+      </thead>
+      <tbody *ngIf="!hasError">
+        <tr *ngFor="let priority of priorities">
+          <td>{{ priority.BugPriority }}</td>
+          <td>{{ priority.BugViewModels.length }}</td>
+          <td>
+            <button type="button" class="btn btn-info action-button" (click)="PriorityDetails(priority.Id)">Details</button>
+            <button type="button" class="btn btn-danger action-button" (click)="DeletePriority(priority.Id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="hasError">
+        <tr>
+          <td colspan="3">
+            oops..! Could not load the data.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

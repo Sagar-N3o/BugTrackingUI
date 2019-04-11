@@ -19,6 +19,11 @@ export class BugService {
     'BugStatus': ['']
   });
 
+  //Bug Priority Form
+  PriorityForm: FormGroup = this.fb.group({
+    'BugPriority': ['']
+  });
+
   // Bug
   GetAllBugs() {
     return this._http.get<any>(this._bashURL + 'get-all');
@@ -47,5 +52,22 @@ export class BugService {
 
   DeleteBugStatus(id: number) {
     return this._http.delete<any>(this._bashURL + 'status/delete/' + id);
+  }
+
+  // Bug Priority
+  GetAllBugPriority() {
+    return this._http.get<any>(this._bashURL + 'priority/get-all');
+  }
+
+  PriorityDetails(id: number) {
+    return this._http.get<any>(this._bashURL + 'priority/get/' + id);
+  }
+
+  CreateBugPriority(data: any) {
+    return this._http.post<any>(this._bashURL + 'priority/create', data);
+  }
+
+  DeletePriority(id: number) {
+    return this._http.delete<any>(this._bashURL + 'priority/delete/' + id);
   }
 }
