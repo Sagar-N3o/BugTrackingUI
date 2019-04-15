@@ -22,11 +22,8 @@ export class BugDetailsComponent implements OnInit {
     this.Id = Number.parseInt(this._router.url.split('/')[4]);
     this._bugService.BugDetails(this.Id).subscribe(
       res => {
-        if(res['Success']) {
-          console.log(this.bug);
+        if(res['Success'])
           this.bug = res['Data'];
-          console.log(this.bug);
-        }
         else
           this.hasError = true;
       },

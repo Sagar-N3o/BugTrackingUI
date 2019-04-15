@@ -67,7 +67,7 @@ export class BugService {
     return this._http.post<any>(this._bashURL + 'priority/create', data);
   }
 
-  DeletePriority(id: number) {
+  DeleteBugPriority(id: number) {
     return this._http.delete<any>(this._bashURL + 'priority/delete/' + id);
   }
 }

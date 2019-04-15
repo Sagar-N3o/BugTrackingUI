@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BugService } from 'src/app/shared/services/bug.service';
 
 @Component({
   selector: 'app-bug-priority-details',
@@ -7,9 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BugPriorityDetailsComponent implements OnInit {
 
-  constructor() { }
+  priority: any = {};
+  Id: number = 0;
+  hasError: boolean = false;
 
-  ngOnInit() {
+  constructor(
+    private _router: Router,
+    private _bugService: BugService
+  ) { 
+    this.Id = Number.parseInt(this._router.url.split('/')[5]);
+    this._bugService.PriorityDetails(this.Id).subscribe(
+      res => {
+        if(res['Success']) {
+          this.priority = res['Data'];
+        }
+        else
+          this.hasError = true;
+      },
+      err => this.hasError = true
+    );
   }
 
+  ngOnInit() {
+    
+  }
+
+  GOBack() {
+    this._router.navigate(['admin/bug/status']);
+  }
 }
