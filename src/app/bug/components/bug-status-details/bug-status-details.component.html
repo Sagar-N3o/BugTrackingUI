@@ -17,7 +17,7 @@
             <span class="fa fa-2x fa-bug"></span>
           </h4>
           <div class="card-container">
-            {{ status.BugViewModels.length }} Bugs
+            {{ status.bugCount }} Bug<small>(s)</small>
           </div>
         </div>
       </div>
@@ -32,7 +32,7 @@
     <table class="table table-hover">
       <tr>
         <td width="210px">Name</td>
-        <td>{{ status.BugStatus }}</td>
+        <td>{{ status.name }}</td>
       </tr>
     </table>
 
@@ -43,12 +43,12 @@
     </h4>
 
     <table class="table table-hover">
-      <tr *ngIf="status.BugViewModels.length == 0">
+      <tr *ngIf="status.bugCount == 0">
         <td>
           No Bug found having this status.
         </td>
       </tr>
-      <tr *ngFor="let bug of status.BugViewModels">
+      <tr *ngFor="let bug of status.bugs">
         <td>
           <div class="row bug-item">
             <div class="col-md-2">

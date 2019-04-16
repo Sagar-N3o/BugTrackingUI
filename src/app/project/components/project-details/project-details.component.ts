@@ -9,9 +9,9 @@ import { ProjectService } from 'src/app/shared/services/project.service';
 })
 export class ProjectDetailsComponent implements OnInit {
 
-  project: any = {};
   Id: number = 0;
-  hasError: boolean = false;
+  hasError: boolean = false;  
+  obj: any = {};
 
   constructor(
     private _projectService: ProjectService,
@@ -22,8 +22,19 @@ export class ProjectDetailsComponent implements OnInit {
     this.Id = Number.parseInt(this._router.url.split('/')[4]);
     this._projectService.ProjectDetails(this.Id).subscribe(
       res => {
-        if(res['Success'])
-          this.project = res['Data'];
+        if(res['Success']) {
+          this.obj = {
+            'bugCount': res['Data'].BugViewModels.length,
+            'employeeCount': res['Data'].Project_DeveloperViewModels.length,
+            'projectName': res['Data'].ProjectName,
+            'projectDescription': res['Data'].Description,
+            'projectIsActive': res['Data'].IsActive,
+            'projectStatus': res['Data'].Project_StatusViewModel.ProjectStatus,
+            'projectTechnology': res['Data'].Project_TechnologiesViewModel.Name,
+            'employees': res['Data'].Project_DeveloperViewModels,
+            'bugs': res['Data'].BugViewModels
+            };
+        }
         else
           this.hasError = true;
       },

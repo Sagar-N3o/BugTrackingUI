@@ -23,7 +23,21 @@ export class BugDetailsComponent implements OnInit {
     this._bugService.BugDetails(this.Id).subscribe(
       res => {
         if(res['Success'])
-          this.bug = res['Data'];
+          this.bug = {
+            'title': res['Data'].Title,
+            'description': res['Data'].Description,
+            'image': res['Data'].ImageUrl,
+            'status': res['Data'].Bug_StatusViewModel.BugStatus,
+            'priority': res['Data'].Bug_PrioritiesViewModel.BugPriority,
+            'projectName': res['Data'].ProjectViewModel.ProjectName,
+            'projectTechnology': res['Data'].ProjectViewModel.Project_TechnologiesViewModel.Name,
+            'projectStatus': res['Data'].ProjectViewModel.Project_StatusViewModel.ProjectStatus,
+            'projectIsActive': res['Data'].ProjectViewModel.IsActive,
+            'employeeName': res['Data'].UserViewModel.FirstName + " " + res['Data'].UserViewModel.LastName,
+            'employeeEmail': res['Data'].UserViewModel.Email,
+            'employeeContectNumber': res['Data'].UserViewModel.ContectNumber,
+            'employeeExperience': res['Data'].UserViewModel.Experience
+          };
         else
           this.hasError = true;
       },

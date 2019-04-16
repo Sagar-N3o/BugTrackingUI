@@ -12,23 +12,23 @@
     <table class="table table-hover">
       <tr>
         <td width="210px">Title</td>
-        <td>{{ bug.Title }}</td>
+        <td>{{ bug.title }}</td>
       </tr>
       <tr>
         <td>Description</td>
-        <td>{{ bug.Description }}</td>
+        <td>{{ bug.description }}</td>
       </tr>
       <tr>
         <td>Image</td>
-        <td>{{ bug.ImageUrl }}</td>
+        <td>{{ bug.image }}</td>
       </tr>
       <tr>
         <td>Status</td>
-        <td>{{ bug.Bug_StatusViewModel.BugStatus }}</td>
+        <td>{{ bug.status }}</td>
       </tr>
       <tr>
         <td>Priority</td>
-        <td>{{ bug.Bug_PrioritiesViewModel.BugPriority }}</td>
+        <td>{{ bug.priority }}</td>
       </tr>
     </table>
 
@@ -41,19 +41,19 @@
     <table class="table table-hover">
       <tr>
         <td width="210px">Project Title</td>
-        <td>{{ bug.ProjectViewModel.ProjectName }} </td>
+        <td>{{ bug.projectName }} </td>
       </tr>
       <tr>
         <td>Technology</td>
-        <td>{{ bug.ProjectViewModel.Project_TechnologiesViewModel.Name }}</td>
+        <td>{{ bug.projectTechnology }}</td>
       </tr>
       <tr>
         <td>Status</td>
-        <td>{{ bug.ProjectViewModel.Project_StatusViewModel.ProjectStatus }}</td>
+        <td>{{ bug.projectStatus }}</td>
       </tr>
       <tr>
         <td>Is Active</td>
-        <td>{{ bug.ProjectViewModel.IsActive }}</td>
+        <td>{{ bug.projectIsActive }}</td>
       </tr>
     </table>
 
@@ -64,19 +64,19 @@
     <table class="table table-hover">
       <tr>
         <td width="210px">Full Name</td>
-        <td>{{ bug.UserViewModel.FirstName }} {{ bug.UserViewModel.LastName }}</td>
+        <td>{{ bug.employeeName }}</td>
       </tr>
       <tr>
         <td>Email</td>
-        <td>{{ bug.UserViewModel.Email }}</td>
+        <td>{{ bug.employeeEmail }}</td>
       </tr>
       <tr>
         <td>Contect Number</td>
-        <td>{{ bug.UserViewModel.ContectNumber }}</td>
+        <td>{{ bug.employeeContectNumber }}</td>
       </tr>
       <tr>
         <td>Experience</td>
-        <td>{{ bug.UserViewModel.Experience }}<small>(Years)</small></td>
+        <td>{{ bug.employeeExperience }}<small>(Years)</small></td>
       </tr>
     </table>
   </div>

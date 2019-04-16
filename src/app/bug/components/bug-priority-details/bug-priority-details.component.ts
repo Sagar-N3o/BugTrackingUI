@@ -21,7 +21,11 @@ export class BugPriorityDetailsComponent implements OnInit {
     this._bugService.PriorityDetails(this.Id).subscribe(
       res => {
         if(res['Success']) {
-          this.priority = res['Data'];
+          this.priority = {
+            'bugCount': res['Data'].BugViewModels.length,
+            'name': res['Data'].BugPriority,
+            'bugs': res['Data'].BugViewModels
+          };
         }
         else
           this.hasError = true;

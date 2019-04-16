@@ -16,7 +16,7 @@
             <span class="fa fa-2x fa-bug"></span>
           </h4>
           <div class="card-container">
-            {{ project.BugViewModels.length }} Active bugs
+            {{ obj.bugCount }} Active bug<small>(s)</small>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@
             <span class="fa fa-2x fa-user"></span>
           </h4>
           <div class="card-container">
-            {{ project.Project_DeveloperViewModels.length }} Employee working
+            {{ obj.employeeCount }} Employee<small>(s)</small> working
           </div>
         </div>
       </div>
@@ -41,23 +41,23 @@
     <table border="0" class="table table-hover">
       <tr>
         <td width="210px">Title</td>
-        <td>{{ project.ProjectName }}</td>
+        <td>{{ obj.projectName }}</td>
       </tr>
       <tr>
         <td>Description</td>
-        <td>{{ project.Description }}</td>
+        <td>{{ obj.projectDescription }}</td>
       </tr>
       <tr>
         <td>Is Active</td>
-        <td>{{ project.IsActive }}</td>
+        <td>{{ obj.projectIsActive }}</td>
       </tr>
       <tr>
         <td>Status</td>
-        <td>{{ project.Project_StatusViewModel.ProjectStatus }}</td>
+        <td>{{ obj.projectStatus }}</td>
       </tr>
       <tr>
         <td>Technology</td>
-        <td>{{ project.Project_TechnologiesViewModel.Name }}</td>
+        <td>{{ obj.projectTechnology }}</td>
       </tr>
     </table>
 
@@ -67,13 +67,13 @@
       <b>Current Employees</b>
     </h4>
 
-    <table border="0" class="table table-hover">
-      <tr *ngIf="project.Project_DeveloperViewModels.length == 0">
+    <table class="table table-hover">
+      <tr *ngIf="obj.employeeCount == 0">
         <td>
           No one is working in this project.
         </td>
       </tr>
-      <tr *ngFor="let employee of project.Project_DeveloperViewModels">
+      <tr *ngFor="let employee of obj.employees">
         <td>
           <div class="row employee-item">
             <div class="col-md-3">
@@ -99,13 +99,13 @@
       <b>Active Bugs</b>
     </h4>
 
-    <table border="0" class="table table-hover">
-      <tr *ngIf="project.BugViewModels.length == 0">
+    <table class="table table-hover">
+      <tr *ngIf="obj.bugCount == 0">
         <td colspan="2">
           No any active bug.
         </td>
       </tr>
-      <tr *ngFor="let bug of project.BugViewModels">
+      <tr *ngFor="let bug of obj.bugs">
         <td width="210px">Bug Title</td>
         <td>{{ bug.Title }}</td>
       </tr>

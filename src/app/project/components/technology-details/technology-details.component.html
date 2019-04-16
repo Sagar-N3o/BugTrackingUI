@@ -17,7 +17,7 @@
             <span class="fa fa-2x fa-tasks"></span>
           </h4>
           <div class="card-container">
-            {{ technology.ProjectViewModels.length }} Projects
+            {{ technology.projectCount }} Project<small>(s)</small>
           </div>
         </div>
       </div>
@@ -32,11 +32,11 @@
     <table border="0" class="table table-hover">
       <tr>
         <td width="210px">Name</td>
-        <td>{{ technology.Name }}</td>
+        <td>{{ technology.name }}</td>
       </tr>
       <tr>
         <td>Description</td>
-        <td>{{ technology.Description }}</td>
+        <td>{{ technology.description }}</td>
       </tr>
     </table>
     
@@ -47,12 +47,12 @@
     </h4>
 
     <table border="0" class="table table-hover">
-      <tr *ngIf="technology.ProjectViewModels.length == 0">
+      <tr *ngIf="technology.projectCount == 0">
         <td>
           No project is under development under this technology.
         </td>
       </tr>
-      <tr *ngFor="let project of technology.ProjectViewModels">
+      <tr *ngFor="let project of technology.projects">
         <td>
           <div class="row project-item">
             <div class="col-md-3">

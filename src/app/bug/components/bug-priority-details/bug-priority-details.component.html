@@ -17,7 +17,7 @@
             <span class="fa fa-2x fa-bug"></span>
           </h4>
           <div class="card-container">
-            {{ priority.BugViewModels.length }} Bug<small>(s)</small>
+            {{ priority.bugCount }} Bug<small>(s)</small>
           </div>
         </div>
       </div>
@@ -32,7 +32,7 @@
     <table class="table table-hover">
       <tr>
         <td width="210px">Name</td>
-        <td>{{ priority.BugPriority }}</td>
+        <td>{{ priority.name }}</td>
       </tr>
     </table>
 
@@ -42,12 +42,12 @@
       <b>Current Bugs</b>
     </h4>
     <table class="table table-hover">
-      <tr *ngIf="priority.BugViewModels.length == 0">
+      <tr *ngIf="priority.bugCount == 0">
         <td>
           No Bug found having this status.
         </td>
       </tr>
-      <tr *ngFor="let bug of priority.BugViewModels">
+      <tr *ngFor="let bug of priority.bugs">
         <td>
           <div class="row bug-item">
             <div class="col-md-2">

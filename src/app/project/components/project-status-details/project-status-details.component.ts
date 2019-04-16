@@ -23,7 +23,11 @@ export class ProjectStatusDetailsComponent implements OnInit {
     this._projectService.StatusDetails(this.Id).subscribe(
       res => {
         if(res['Success'])
-          this.status = res['Data'];
+          this.status = {
+            'projectCount': res['Data'].ProjectViewModels.length,
+            'name': res['Data'].ProjectStatus,
+            'projects': res['Data'].ProjectViewModels
+          };
         else
           this.hasError = true;
       },

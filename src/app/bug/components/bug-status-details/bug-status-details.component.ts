@@ -23,7 +23,11 @@ export class BugStatusDetailsComponent implements OnInit {
     this._bugService.StatusDetails(this.Id).subscribe(
       res => {
         if(res['Success']) {
-          this.status = res['Data'];
+          this.status = {
+            'bugCount': res['Data'].BugViewModels.length,
+            'name': res['Data'].BugStatus,
+            'bugs': res['Data'].BugViewModels
+          };
         }
         else
           this.hasError = true;

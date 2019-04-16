@@ -23,7 +23,12 @@ export class TechnologyDetailsComponent implements OnInit {
     this._projectService.TechnologyDetails(this.Id).subscribe(
       res => {
         if(res['Success'])
-          this.technology = res['Data'];
+          this.technology = {
+            'projectCount': res['Data'].ProjectViewModels.length,
+            'name': res['Data'].Name,
+            'description': res['Data'].Description,
+            'projects': res['Data'].ProjectViewModels
+          };
         else
           this.hasError = true;
       },

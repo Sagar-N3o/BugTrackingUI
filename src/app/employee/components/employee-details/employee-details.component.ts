@@ -23,7 +23,20 @@ export class EmployeeDetailsComponent implements OnInit {
     this._employeeService.EmployeeDetails(this.Id).subscribe(
       res => {
         if(res['Success'])
-          this.employee = res['Data'];
+          this.employee = {
+            'bugCount': res['Data'].BugViewModels.length,
+            'projectCount': res['Data'].Project_DevelopersViewModel.length,
+            'name': res['Data'].FirstName + " " + res['Data'].LastName,
+            'email': res['Data'].Email,
+            'contectNumber': res['Data'].ContectNumber,
+            'experience': res['Data'].Experience,
+            'isActive': res['Data'].IsActive,
+            'role': res['Data'].User_RolesViewModel.RoleName,
+            'address': res['Data'].Address,
+            'dob': res['Data'].BirthDate,
+            'projects': res['Data'].Project_DevelopersViewModel,
+            'bugs': res['Data'].BugViewModels
+          };
         else
           this.hasError = true;
       },
