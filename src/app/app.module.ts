@@ -15,10 +15,12 @@ import { EmployeeModule } from './employee/employee.module';
 import { ProjectModule } from './project/project.module';
 import { BugModule } from './bug/bug.module';
 import { BugRoutingModule } from './bug/bug-routing/bug-routing.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
