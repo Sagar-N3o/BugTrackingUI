@@ -13,6 +13,7 @@ import { EmployeeDashboardModule } from './employee-dashboard/employee-dashboard
 import { DashboardService } from './shared/services/dashboard.service';
 import { EmployeeService } from './shared/services/employee.service';
 import { ProjectService } from './shared/services/project.service';
+import { AuthenticationService } from './shared/services/authentication.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -36,7 +37,8 @@ import { LoginComponent } from './login/login.component';
   providers: [
     DashboardService,
     EmployeeService,
-    ProjectService
+    ProjectService,
+    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })

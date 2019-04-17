@@ -9,41 +9,43 @@
 <section>
   <div class="login-window">
     <div class="panel panel-default">
-      <div class="panel-heading main-color-bg">
-        <h3 class="panel-title">
-          <span class="fa fa-sign-in">&nbsp;&nbsp;&nbsp;</span>Login
-        </h3>
-      </div>
-      <div class="panel-body">
-        <div class="row mb-10">
-          <div class="form-group">
-            <div class="col-md-2">
-              <label for="Email" class="control-label">Email</label>
-            </div>
-            <div class="col-md-10">
-              <input id="Email" type="text" class="form-control" />
+      <form [formGroup]="_authenticationService.loginForm" (ngSubmit)="OnSubmit()">
+        <div class="panel-heading main-color-bg">
+          <h3 class="panel-title">
+            <span class="fa fa-sign-in">&nbsp;&nbsp;&nbsp;</span>Login
+          </h3>
+        </div>
+        <div class="panel-body">
+          <div class="row mb-10">
+            <div class="form-group">
+              <div class="col-md-2">
+                <label for="Email" class="control-label">Email</label>
+              </div>
+              <div class="col-md-10">
+                <input id="Email" type="text" formControlName="Email" class="form-control" />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="form-group">
-            <div class="col-md-2">
-              <label for="Password" class="control-label">Password</label>
-            </div>
-            <div class="col-md-10">
-              <input id="Password" type="password" class="form-control" />
+          <div class="row">
+            <div class="form-group">
+              <div class="col-md-2">
+                <label for="Password" class="control-label">Password</label>
+              </div>
+              <div class="col-md-10">
+                <input id="Password" type="password" formControlName="Password" class="form-control" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="panel-footer">
-        <div class="row">
-          <div class="col-md-10 col-md-offset-2">
-            <input type="submit" value="Login" class="btn btn-success" />
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-2">
+              <input type="submit" value="Login" class="btn btn-success" />
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </section>
