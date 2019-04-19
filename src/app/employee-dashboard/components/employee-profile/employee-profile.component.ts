@@ -32,7 +32,9 @@ export class EmployeeProfileComponent implements OnInit {
             'isActive': res['Data'].IsActive,
             'dob': res['Data'].BirthDate,
             'experience': res['Data'].Experience,
-            'bugCount': res['Data'].BugViewModels.length
+            'bugCount': res['Data'].BugViewModels.length,
+            'projects': res['Data'].Project_DevelopersViewModel,
+            'bugs': res['Data'].BugViewModels
           };
         else
           this.hasError = true;
@@ -41,4 +43,7 @@ export class EmployeeProfileComponent implements OnInit {
     );
   }
 
+  EditProfile() {
+    this._router.navigate(['employee/profile/edit']);
+  }
 }

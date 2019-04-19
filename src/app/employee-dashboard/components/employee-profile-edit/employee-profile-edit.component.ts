@@ -1,52 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from 'src/app/shared/services/employee.service';
 import { Router } from '@angular/router';
+import { EmployeeService } from 'src/app/shared/services/employee.service';
 
 @Component({
-  selector: 'app-update-employee',
-  templateUrl: './update-employee.component.html',
-  styleUrls: ['./update-employee.component.css']
+  selector: 'app-employee-profile-edit',
+  templateUrl: './employee-profile-edit.component.html',
+  styleUrls: ['./employee-profile-edit.component.css']
 })
-export class UpdateEmployeeComponent implements OnInit {
+export class EmployeeProfileEditComponent implements OnInit {
 
   hasError: boolean = false;
   Id: number = 0;
-  roles = [];
   employee: any = {};
 
   constructor(
-    private _employeeService: EmployeeService,
-    private _router: Router
+    private _router: Router,
+    private _employeeService: EmployeeService
   ) { }
 
   ngOnInit() {
-    this._employeeService.GetRoles().subscribe(
-      data => {
-        if(data['Success'])
-          this.roles = data['Data'];
-        else {
-          this.hasError = true;
-          this._router.navigate(['admin/employee']);
-        }
-      },
-      err => this.hasError = true
-    );
-
-    this.LoadData();
-  }
-
-  LoadData() {
-    this.Id = Number.parseInt(this._router.url.split('/')[4]);
+    this.Id = Number.parseInt(sessionStorage.getItem('employee_id'));
     this._employeeService.EmployeeDetails(this.Id).subscribe(
       res => {
-        if(res['Success']) {
+        if (res['Success']) {
           this.employee = res['Data'];
           this.LoadFormData();
         }
         else
           this.hasError = true;
       },
-      err => this.hasError = true 
+      err => this.hasError = true
     );
   }
 
@@ -63,12 +46,16 @@ export class UpdateEmployeeComponent implements OnInit {
     this._employeeService.employeeForm.get('Password').setValue(this.employee.Password);
   }
 
+  GoBack() {
+    this._router.navigate(['employee/profile']);
+  }
+
   OnSubmit() {
     this._employeeService.UpdateEmployee(this._employeeService.employeeForm.value)
       .subscribe(
         res => {
           this._employeeService.employeeForm.reset();
-          this._router.navigate(['/admin/employee']);
+          this._router.navigate(['/employee/profile']);
         },
         err => {
           this.hasError = true;

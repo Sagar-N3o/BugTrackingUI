@@ -27,6 +27,11 @@ export class EmployeeService {
     'Password': ['']
   });
 
+  changePasswordForm: FormGroup = this.fb.group({
+    'OldPassword': [''],
+    'NewPassword': ['']
+  });
+
   roleForm: FormGroup = this.fb.group({
     'RoleName': ['']
   });
@@ -51,8 +56,14 @@ export class EmployeeService {
     return this._http.get<any>(this._bashURL + 'user/get/' + id);
   }
 
-  UpdateEmployee(id: number, data: any) {
-    return this._http.put<any>(this._bashURL + 'user/update' + id, data);
+  UpdateEmployee(data: any) {
+    data.Id = Number.parseInt(sessionStorage.getItem('employee_id'));
+    return this._http.put<any>(this._bashURL + 'user/update', data);
+  }
+
+  ChangePassword(data: any) {
+    data.Id = Number.parseInt(sessionStorage.getItem('employee_id'));
+    return this._http.post<any>(this._bashURL + 'user/change-password', data);
   }
 
   CreateRole(data: any) {

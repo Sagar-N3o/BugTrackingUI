@@ -3,42 +3,129 @@
     Back</button>
 </div>
 
-<div class="panel panel-default">
-  <div class="panel-heading main-color-bg">
-    <h3 class="panel-title">
-      <span class="fa fa-user">&nbsp;&nbsp;&nbsp;</span>Employee Profile
-    </h3>
+<div class="row">
+  <div class="col-md-7">
+    <div class="panel panel-default">
+      <div class="panel-heading main-color-bg">
+        <h3 class="panel-title">
+          <span class="fa fa-info-circle">&nbsp;&nbsp;&nbsp;</span>Personal Details
+        </h3>
+      </div>
+      <div class="panel-body">
+        <table class="table table-hover">
+          <tr>
+            <th width="150px">Full name</th>
+            <td>{{ employee.name }}</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>{{ employee.email }}</td>
+          </tr>
+          <tr>
+            <th>Contect Number</th>
+            <td>{{ employee.contectNumber }}</td>
+          </tr>
+          <tr>
+            <th>Address</th>
+            <td>{{ employee.address }}</td>
+          </tr>
+          <tr>
+            <th>role</th>
+            <td>{{ employee.role }}</td>
+          </tr>
+          <tr>
+            <th>Date of birth</th>
+            <td>{{ employee.dob | date: 'mediumDate' }}</td>
+          </tr>
+          <tr>
+            <th>Experience</th>
+            <td>{{ employee.experience }}</td>
+          </tr>
+          <tr>
+            <th>Password</th>
+            <td>
+              ********&nbsp;&nbsp;&nbsp;
+              <a [routerLink]="[ '/employee/profile/change-password' ]">Change Password</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="panel-footer">
+        <input type="button" class="btn main-color-bg" value="Edit" (click)="EditProfile()" />&nbsp;&nbsp;
+      </div>
+    </div>
+
   </div>
-  <div class="panel-body">
-    <table class="table table-hover">
-      <tr>
-        <th width="210px">Full name</th>
-        <td>{{ employee.name }}</td>
-      </tr>
-      <tr>
-        <th width="210px">Email</th>
-        <td>{{ employee.email }}</td>
-      </tr>
-      <tr>
-        <th width="210px">Contect Number</th>
-        <td>{{ employee.contectNumber }}</td>
-      </tr>
-      <tr>
-        <th width="210px">Address</th>
-        <td>{{ employee.address }}</td>
-      </tr>
-      <tr>
-        <th width="210px">role</th>
-        <td>{{ employee.role }}</td>
-      </tr>
-      <tr>
-        <th width="210px">Date of birth</th>
-        <td>{{ employee.dob | date: 'mediumDate' }}</td>
-      </tr>
-      <tr>
-        <th width="210px">Experience</th>
-        <td>{{ employee.experience }}</td>
-      </tr>
-    </table>
+
+  <div class="col-md-5">
+    <div class="panel panel-default">
+      <div class="panel-heading main-color-bg">
+        <h3 class="panel-title">
+          <span class="fa fa-tasks">&nbsp;&nbsp;&nbsp;</span>Current Project
+        </h3>
+      </div>
+      <div class="panel-body">
+        <table class="table table-hover">
+          <tr *ngIf="employee.projectCount == 0">
+            <td>
+              You are not working in any project.
+            </td>
+          </tr>
+          <tr *ngFor="let project of employee.projects">
+            <td>
+              <div class="row bug-item">
+                <div class="col-md-5">
+                  <b>Project Title</b>
+                </div>
+                <div class="col-md-7">
+                  {{ project.ProjectViewModel.ProjectName }}
+                </div>
+                <div class="col-md-5">
+                  <b>Role</b>
+                </div>
+                <div class="col-md-7">
+                  {{ employee.role }}
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="panel-footer">
+        <input type="button" class="btn main-color-bg" value="Full Details" />
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading main-color-bg">
+        <h3 class="panel-title">
+          <span class="fa fa-bug">&nbsp;&nbsp;&nbsp;</span>Active Bugs
+        </h3>
+      </div>
+      <div class="panel-body">
+        <table class="table table-hover">
+          <tr *ngIf="employee.bugCount == 0">
+            <td>
+              No any active bug.
+            </td>
+          </tr>
+          <tr *ngFor="let bug of employee.bugs">
+            <td>
+              <div class="row bug-item">
+                <div class="col-md-4">
+                  <b>Bug Title</b>
+                </div>
+                <div class="col-md-8">
+                  {{ bug.Title }}
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="panel-footer">
+        <input type="button" class="btn main-color-bg" value="Full Details" />
+      </div>
+    </div>
   </div>
 </div>

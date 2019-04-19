@@ -16,6 +16,19 @@
           </h3>
         </div>
         <div class="panel-body">
+          <div *ngIf="hasError">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-2">
+                  <div class="alert alert-danger">
+                    <ul>
+                      <li>
+                        Either Email or Password is wrong.
+                      </li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+          </div>
           <div class="row mb-10">
             <div class="form-group">
               <div class="col-md-2">
