@@ -44,8 +44,16 @@ export class ProjectService {
     return this._http.get<any>(this._bashURL + 'get/' + id)
   }
 
+  ProjectDetailsByUserId(id: number) {
+    return this._http.get<any>('http://localhost:50664/api/project/developers/get-by-user/' + id);
+  }
+
   CreateProject(data: any) {
     return this._http.post<any>(this._bashURL + 'create', data);
+  }
+
+  ChangeStatus(data: any) {
+    return this._http.post<any>(this._bashURL + 'change-status', data);
   }
 
   DeleteProject(id: number) {

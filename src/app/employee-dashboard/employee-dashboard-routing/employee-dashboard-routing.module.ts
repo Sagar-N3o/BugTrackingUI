@@ -7,6 +7,7 @@ import { EmployeeCurrentProjectComponent } from '../components/employee-current-
 import { EmployeeProfileComponent } from '../components/employee-profile/employee-profile.component';
 import { EmployeeProfileEditComponent } from '../components/employee-profile-edit/employee-profile-edit.component';
 import { EmployeeChangePasswordComponent } from '../components/employee-change-password/employee-change-password.component';
+import { EmployeeBugDetailsComponent } from '../components/employee-bug-details/employee-bug-details.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: EmployeeDashboardComponent },
       { path: 'bug', component: EmployeeListBugComponent },
+      { path: 'bug/details/:id', component: EmployeeBugDetailsComponent },
       { path: 'project', component: EmployeeCurrentProjectComponent },
       { path: 'profile', component: EmployeeProfileComponent },
       { path: 'profile/edit', component: EmployeeProfileEditComponent },

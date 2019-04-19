@@ -13,6 +13,7 @@ import { EmployeeCurrentProjectComponent } from './components/employee-current-p
 import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
 import { EmployeeProfileEditComponent } from './components/employee-profile-edit/employee-profile-edit.component';
 import { EmployeeChangePasswordComponent } from './components/employee-change-password/employee-change-password.component';
+import { EmployeeBugDetailsComponent } from './components/employee-bug-details/employee-bug-details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EmployeeChangePasswordComponent } from './components/employee-change-pa
     EmployeeCurrentProjectComponent,
     EmployeeProfileComponent,
     EmployeeProfileEditComponent,
-    EmployeeChangePasswordComponent
+    EmployeeChangePasswordComponent,
+    EmployeeBugDetailsComponent
   ],
   imports: [
     CommonModule,

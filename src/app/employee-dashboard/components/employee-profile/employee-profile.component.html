@@ -92,7 +92,7 @@
         </table>
       </div>
       <div class="panel-footer">
-        <input type="button" class="btn main-color-bg" value="Full Details" />
+        <input type="button" class="btn main-color-bg" value="Full Details" (click)="ViewProjectDetails()" />
       </div>
     </div>
 
@@ -115,16 +115,16 @@
                 <div class="col-md-4">
                   <b>Bug Title</b>
                 </div>
-                <div class="col-md-8">
-                  {{ bug.Title }}
+                <div class="col-md-4">
+                  {{ bug.Title | slice: 0: 8 }}...
+                </div>
+                <div class="col-md-4">
+                  <a [routerLink]="[ '/employee/bug/details', bug.Id ]">Details</a>
                 </div>
               </div>
             </td>
           </tr>
         </table>
-      </div>
-      <div class="panel-footer">
-        <input type="button" class="btn main-color-bg" value="Full Details" />
       </div>
     </div>
   </div>
