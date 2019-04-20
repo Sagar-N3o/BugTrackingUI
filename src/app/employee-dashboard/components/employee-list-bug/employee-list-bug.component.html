@@ -1,3 +1,38 @@
-<p>
-  employee-list-bug works!
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading main-color-bg">
+    <h3 class="panel-title">
+      <span class="fa fa-bug">&nbsp;&nbsp;&nbsp;</span>Bugs
+    </h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover text-center">
+      <thead>
+        <tr>
+          <td><b>Title</b></td>
+          <td><b>Project</b></td>
+          <td><b>Status</b></td>
+          <td><b>Priority</b></td>
+          <td><b>Actions</b></td>
+        </tr>
+      </thead>
+      <tbody *ngIf="!hasError">
+        <tr *ngFor="let bug of bugs">
+          <td>{{ bug.Title }}</td>
+          <td>{{ bug.ProjectViewModel.ProjectName }}</td>
+          <td>{{ bug.Bug_StatusViewModel.BugStatus }}</td>
+          <td>{{ bug.Bug_PrioritiesViewModel.BugPriority }}</td>
+          <td>
+            <button type="button" class="btn btn-info action-button" (click)="BugDetails(bug.Id)">Details</button>
+          </td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="hasError">
+        <tr>
+          <td colspan="6">
+            oops..! Could not load the data.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

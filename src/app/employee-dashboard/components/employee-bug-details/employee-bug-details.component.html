@@ -1,3 +1,89 @@
-<p>
-  employee-bug-details works!
-</p>
+<div *ngIf="hasError" class="alert alert-danger mt-20">
+  Something went wrong.! try again :( <button type="button" class="btn btn-danger btn-link" (click)="GoBack()">Go
+    Back</button>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading main-color-bg">
+    <h3 class="panel-title">
+      <span class="fa fa-bug">&nbsp;&nbsp;&nbsp;</span>Bug Details
+    </h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <tr>
+        <td width="210px">Title</td>
+        <td>{{ bug.title }}</td>
+      </tr>
+      <tr>
+        <td>Description</td>
+        <td>{{ bug.description }}</td>
+      </tr>
+      <tr>
+        <td>Image</td>
+        <td>{{ bug.image }}</td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td>{{ bug.status }}</td>
+      </tr>
+      <tr>
+        <td>Priority</td>
+        <td>{{ bug.priority }}</td>
+      </tr>
+    </table>
+
+    <hr />
+
+    <h4>
+      <b>Project</b>
+    </h4>
+
+    <table class="table table-hover">
+      <tr>
+        <td width="210px">Project Title</td>
+        <td width="200px">{{ bug.projectName }} </td>
+        <td>
+          <a [routerLink]="[ '/employee/project' ]">Full Details</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Technology</td>
+        <td colspan="2">{{ bug.projectTechnology }}</td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td colspan="2">{{ bug.projectStatus }}</td>
+      </tr>
+      <tr>
+        <td>Is Active</td>
+        <td colspan="2">{{ bug.projectIsActive }}</td>
+      </tr>
+    </table>
+
+    <h4>
+      <b>Employee</b>
+    </h4>
+
+    <table class="table table-hover">
+      <tr>
+        <td width="210px">Full Name</td>
+        <td width="200px">{{ bug.employeeName }}</td>
+        <td>
+          <a [routerLink]="[ '/employee/profile' ]">Full Profile</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td colspan="2">{{ bug.employeeEmail }}</td>
+      </tr>
+      <tr>
+        <td>Contect Number</td>
+        <td colspan="2">{{ bug.employeeContectNumber }}</td>
+      </tr>
+      <tr>
+        <td>Experience</td>
+        <td colspan="2">{{ bug.employeeExperience }}<small>(Years)</small></td>
+      </tr>
+    </table>
+  </div>
+</div>

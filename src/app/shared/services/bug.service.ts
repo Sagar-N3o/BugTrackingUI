@@ -29,6 +29,10 @@ export class BugService {
     return this._http.get<any>(this._bashURL + 'get-all');
   }
 
+  GetBugsByUser(id: number) {
+    return this._http.get<any>(this._bashURL + 'get-by-user/' + id);
+  }
+
   BugDetails(id: number) {
     return this._http.get<any>(this._bashURL + 'get/' + id);
   }

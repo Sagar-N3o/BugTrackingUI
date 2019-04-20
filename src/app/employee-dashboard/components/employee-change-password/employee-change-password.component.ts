@@ -22,21 +22,37 @@ export class EmployeeChangePasswordComponent implements OnInit {
   }
 
   OnSubmit() {
-    this._employeeService.ChangePassword(this._employeeService.changePasswordForm.value).subscribe(
-      res => {
-        if(res['Success']) {
-          this._employeeService.changePasswordForm.reset();
-          this._router.navigate(['employee/profile']);
-        }
-        else {
-          if(res['Data'] == null) 
-            this.error = "You have entered wrong password.";
-          this.hasError = true;
-        }
-      },
-      err => 
-        this.hasError = true
-    );
+    if(this.Validate()) {
+      this._employeeService.ChangePassword(this._employeeService.changePasswordForm.value).subscribe(
+        res => {
+          if(res['Success']) {
+            this._employeeService.changePasswordForm.reset();
+            this._router.navigate(['employee/profile']);
+          }
+          else {
+            if(res['Data'] == null) 
+              this.error = "You have entered wrong password.";
+            this.hasError = true;
+          }
+        },
+        err => 
+          this.hasError = true
+      );
+    }
+    else {
+      this.error = "Password and Confirm password did not match.";
+      this.hasError = true;
+    }
+  }
+
+  Validate(): boolean {
+    let pwd: string = (<HTMLInputElement>document.getElementById('NewPassword')).value;
+    let confirmPwd: string = (<HTMLInputElement>document.getElementById('ConfirmPassword')).value;
+
+    if(pwd == confirmPwd)
+      return true;
+    else  
+      return false;
   }
 
 }

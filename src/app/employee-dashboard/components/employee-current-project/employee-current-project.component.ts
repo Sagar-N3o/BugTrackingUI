@@ -22,10 +22,26 @@ export class EmployeeCurrentProjectComponent implements OnInit {
 
   ngOnInit() {
     this.Id = Number.parseInt(sessionStorage.getItem('employee_id'));
+    this.LoadProjectDetails();
+    this.LoadAllStatus();
+  }
 
+  LoadAllStatus() {
+    this._projectService.GetAllStatus().subscribe(
+      res => {
+        if (res['Success'])
+          this.statusList = res['Data'];
+        else
+          this.hasError = true;
+      },
+      err => this.hasError = true
+    );
+  }
+
+  LoadProjectDetails() {
     this._projectService.ProjectDetailsByUserId(this.Id).subscribe(
       res => {
-        if(res['Success'])
+        if (res['Success'])
           this.project = {
             'Id': res['Data'].ProjectViewModel.Id,
             'name': res['Data'].ProjectViewModel.ProjectName,
@@ -43,16 +59,6 @@ export class EmployeeCurrentProjectComponent implements OnInit {
       },
       err => this.hasError = true
     );
-
-    this._projectService.GetAllStatus().subscribe(
-      res => {
-        if(res['Success'])
-          this.statusList = res['Data'];
-        else
-          this.hasError = true;
-      },
-      err => this.hasError = true
-    )
   }
 
   ChangeStatus() {
@@ -63,7 +69,7 @@ export class EmployeeCurrentProjectComponent implements OnInit {
 
     this._projectService.ChangeStatus(this.data).subscribe(
       res => {
-        if(res['Success'])
+        if (res['Success'])
           this.ngOnInit();
         else
           this.hasError = true;
