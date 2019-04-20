@@ -17,14 +17,22 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    sessionStorage.removeItem('employee_id');
   }
 
   OnSubmit() {
     this._authenticationService.Authenticate(this._authenticationService.loginForm.value).subscribe(
       res => {
         if(res['Success']){
-          sessionStorage.setItem('employee_id', res['Data']);
-          this._router.navigate(['employee']);
+          sessionStorage.setItem('employee_id', res['Data'].Id);
+
+          let role = res['Data'].User_RolesViewModel.RoleName;
+          if(role == 'Admin')
+            this._router.navigate(['admin']);
+          else if(role == 'Employee')
+            this._router.navigate(['employee']);
+          else
+            this._router.navigate(['tester']);
         }
         else
           this.hasError = true;

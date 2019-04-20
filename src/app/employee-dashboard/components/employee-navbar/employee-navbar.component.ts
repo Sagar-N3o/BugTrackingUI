@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeNavbarComponent implements OnInit {
 
+  employeeId: number = 0;
+
   constructor() { }
 
   ngOnInit() {
+    this.employeeId = Number.parseInt(sessionStorage.getItem('employee_id'));
   }
 
 }
