@@ -37,6 +37,10 @@ export class BugService {
     return this._http.get<any>(this._bashURL + 'get/' + id);
   }
 
+  ChangeStatus(data: any) {
+    return this._http.post<any>(this._bashURL + 'change-status', data);
+  }
+
   DeleteBug(id: number) {
     return this._http.delete<any>(this._bashURL + 'delete/' + id);
   }

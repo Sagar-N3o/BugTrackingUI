@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 
 import { EmployeeDashboardRoutingModule } from './employee-dashboard-routing/employee-dashboard-routing.module';
-import { EmployeeDashboardComponent } from './components/employee-dashboard/employee-dashboard.component';
 import { EmployeeDashboardDesignComponent } from './components/employee-dashboard-design/employee-dashboard-design.component';
 import { EmployeeNavbarComponent } from './components/employee-navbar/employee-navbar.component';
 import { EmployeeSideNavbarComponent } from './components/employee-side-navbar/employee-side-navbar.component';
@@ -17,7 +16,6 @@ import { EmployeeBugDetailsComponent } from './components/employee-bug-details/e
 
 @NgModule({
   declarations: [
-    EmployeeDashboardComponent,
     EmployeeDashboardDesignComponent,
     EmployeeNavbarComponent,
     EmployeeSideNavbarComponent,

@@ -110,7 +110,10 @@
             </td>
           </tr>
           <tr *ngFor="let bug of employee.bugs">
-            <td>
+            <td *ngIf="bug.StatusId != 1 && bug.StatusId != 2004">
+              No any active bug.
+            </td>
+            <td *ngIf="bug.StatusId == 1 || bug.StatusId == 2004">
               <div class="row bug-item">
                 <div class="col-md-4">
                   <b>Bug Title</b>

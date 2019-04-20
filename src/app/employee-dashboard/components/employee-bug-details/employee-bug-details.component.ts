@@ -12,6 +12,7 @@ export class EmployeeBugDetailsComponent implements OnInit {
   bug = {};
   Id: number = 0;
   hasError: boolean = false;
+  data: any = {};
 
   constructor(
     private _bugService: BugService,
@@ -49,4 +50,18 @@ export class EmployeeBugDetailsComponent implements OnInit {
     this._router.navigate(['employee/bug']);
   }
 
+  ChangeStatus() {
+    this.data.Id = this.Id;
+    this.data.StatusId = 2005;
+
+    this._bugService.ChangeStatus(this.data).subscribe(
+      res => {
+        if(res['Success'])
+          this.ngOnInit();
+        else
+          this.hasError = true;
+      },
+      err => this.hasError = true
+    );
+  }
 }
