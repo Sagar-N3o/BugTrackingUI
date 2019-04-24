@@ -17,6 +17,7 @@ import { AuthenticationService } from './shared/services/authentication.service'
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { TesterModule } from './tester/tester.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LoginComponent } from './login/login.component';
     ProjectModule,
     EmployeeModule,
     BugModule,
-    EmployeeDashboardModule
+    EmployeeDashboardModule,
+    TesterModule
   ],
   providers: [
     DashboardService,
