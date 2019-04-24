@@ -1,0 +1,104 @@
+<div *ngIf="hasError" class="alert alert-danger mt-20">
+  Something went wrong.! try again :( <button type="button" class="btn btn-danger btn-link" (click)="GoBack()">Go
+    Back</button>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading main-color-bg">
+    <h3 class="panel-title">
+      <span class="fa fa-bug">&nbsp;&nbsp;&nbsp;</span>Bug Details
+    </h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <tr>
+        <td width="210px">Title</td>
+        <td colspan="2">{{ bug.title }}</td>
+      </tr>
+      <tr>
+        <td>Description</td>
+        <td colspan="2">{{ bug.description }}</td>
+      </tr>
+      <tr>
+        <td>Image</td>
+        <td colspan="2">{{ bug.image }}</td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td width="185px">{{ bug.status }}</td>
+        <td>
+          <button type="button" class="btn btn-link" (click)="ChangeStatus(2004)">Change bug status : 
+            <b>Open.</b></button> | 
+          <button type="button" class="btn btn-link" (click)="ChangeStatus(1003)">
+            <b>Solved.</b></button>
+        </td>
+      </tr>
+      <tr>
+        <td>Priority</td>
+        <td colspan="2">{{ bug.priority }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading main-color-bg">
+        <h3 class="panel-title">
+          <span class="fa fa-tasks">&nbsp;&nbsp;&nbsp;</span>
+          project Details
+        </h3>
+      </div>
+      <div class="panel-body">
+        <table class="table table-hover">
+          <tr>
+            <td width="210px">Project Title</td>
+            <td>{{ bug.projectName }} </td>
+          </tr>
+          <tr>
+            <td>Technology</td>
+            <td>{{ bug.projectTechnology }}</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td>{{ bug.projectStatus }}</td>
+          </tr>
+          <tr>
+            <td>Is Active</td>
+            <td>{{ bug.projectIsActive }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading main-color-bg">
+        <h3 class="panel-title">
+          <span class="fa fa-user">&nbsp;&nbsp;&nbsp;</span>
+          project Details
+        </h3>
+      </div>
+      <div class="panel-body">
+        <table class="table table-hover">
+          <tr>
+            <td width="210px">Full Name</td>
+            <td>{{ bug.employeeName }}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>{{ bug.employeeEmail }}</td>
+          </tr>
+          <tr>
+            <td>Contect Number</td>
+            <td>{{ bug.employeeContectNumber }}</td>
+          </tr>
+          <tr>
+            <td>Experience</td>
+            <td>{{ bug.employeeExperience }}<small>(Years)</small></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

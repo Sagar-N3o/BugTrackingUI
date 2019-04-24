@@ -33,6 +33,10 @@ export class BugService {
     return this._http.get<any>(this._bashURL + 'get-by-user/' + id);
   }
 
+  GetForTester() {
+    return this._http.get<any>(this._bashURL + 'get-for-tester');
+  }
+
   BugDetails(id: number) {
     return this._http.get<any>(this._bashURL + 'get/' + id);
   }
