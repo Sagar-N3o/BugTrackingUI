@@ -43,10 +43,6 @@ export class EmployeeProfileComponent implements OnInit {
     );
   }
 
-  EditProfile() {
-    this._router.navigate(['employee/profile/edit']);
-  }
-
   ViewProjectDetails() {
     this._router.navigate(['employee/project']);
   }

@@ -39,7 +39,8 @@
         <th>Password</th>
         <td>
           ********&nbsp;&nbsp;&nbsp;
-          <a [routerLink]="[ '/employee/profile/change-password' ]">Change Password</a>
+          <a *ngIf="role == 'Tester'" [routerLink]="[ '/tester/profile/change-password' ]">Change Password</a>
+          <a *ngIf="role == 'Employee'" [routerLink]="[ '/employee/profile/change-password' ]">Change Password</a>
         </td>
       </tr>
     </table>

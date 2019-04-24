@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { EmployeeService } from 'src/app/shared/services/employee.service';
 
 @Component({
@@ -47,7 +48,10 @@ export class EmployeeProfileEditComponent implements OnInit {
   }
 
   GoBack() {
-    this._router.navigate(['employee/profile']);
+    if (sessionStorage.getItem('role') == 'Employee')
+      this._router.navigate(['/employee/profile']);
+    if (sessionStorage.getItem('role') == 'Tester')
+      this._router.navigate(['/tester/profile']);
   }
 
   OnSubmit() {
@@ -55,7 +59,10 @@ export class EmployeeProfileEditComponent implements OnInit {
       .subscribe(
         res => {
           this._employeeService.employeeForm.reset();
-          this._router.navigate(['/employee/profile']);
+          if (sessionStorage.getItem('role') == 'Employee')
+            this._router.navigate(['/employee/profile']);
+          if (sessionStorage.getItem('role') == 'Tester')
+            this._router.navigate(['/tester/profile']);
         },
         err => {
           this.hasError = true;

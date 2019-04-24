@@ -34,7 +34,9 @@ import { EmployeePersonalDetailsComponent } from './components/employee-personal
     EmployeeDashboardRoutingModule
   ],
   exports: [
-    EmployeePersonalDetailsComponent
+    EmployeePersonalDetailsComponent,
+    EmployeeProfileEditComponent,
+    EmployeeChangePasswordComponent
   ]
 })
 export class EmployeeDashboardModule { }

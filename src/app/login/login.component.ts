@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
       res => {
         if(res['Success']){
           sessionStorage.setItem('employee_id', res['Data'].Id);
+          sessionStorage.setItem('role', res['Data'].User_RolesViewModel.RoleName)
 
           let role = res['Data'].User_RolesViewModel.RoleName;
           if(role == 'Admin')
