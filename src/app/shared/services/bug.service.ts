@@ -14,6 +14,17 @@ export class BugService {
     private fb: FormBuilder
   ) { }
 
+  // Bug Form
+  BugForm: FormGroup = this.fb.group({
+    'Title': [''],
+    'Description': [''],
+    'ImageUrl': [''],
+    'projectId': [-1],
+    'UserId': [-1],
+    'PriorityId': [-1],
+    'StatusId': [-1]
+  })
+
   // Bug Status Form
   StatusForm: FormGroup = this.fb.group({
     'BugStatus': ['']
@@ -35,6 +46,10 @@ export class BugService {
 
   GetForTester() {
     return this._http.get<any>(this._bashURL + 'get-for-tester');
+  }
+
+  GetDataForCreatebug() {
+    return this._http.get<any>(this._bashURL + 'get-data-for-create-bug');
   }
 
   BugDetails(id: number) {

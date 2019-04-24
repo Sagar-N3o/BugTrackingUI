@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from './shared/shared.module';
-import { CoreModule } from './core/core.module';
 import { AdminModule } from './admin/admin.module';
 import { AppRoutingModule } from './app-routing.module';
 import { EmployeeModule } from './employee/employee.module';
@@ -27,7 +26,6 @@ import { TesterModule } from './tester/tester.module';
   imports: [
     BrowserModule,
     SharedModule,
-    CoreModule,
     AdminModule,
     AppRoutingModule,
     ProjectModule,

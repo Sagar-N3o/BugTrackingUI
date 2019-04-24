@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BugService } from 'src/app/shared/services/bug.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tester-bug-create',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TesterBugCreateComponent implements OnInit {
 
-  constructor() { }
+  hasError: boolean = false;
+  data: any = {};
+
+  constructor(
+    private _bugService: BugService,
+    private _router: Router
+  ) { }
 
   ngOnInit() {
+    this._bugService.GetDataForCreatebug().subscribe(
+      res => {
+        if (res['Success'])
+          this.data = res['Data'];
+        else
+          this.hasError = true;
+      },
+      err => this.hasError = true
+    );
   }
 
 }
