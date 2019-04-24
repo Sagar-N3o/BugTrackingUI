@@ -32,6 +32,9 @@ import { EmployeePersonalDetailsComponent } from './components/employee-personal
     CommonModule,
     SharedModule,
     EmployeeDashboardRoutingModule
+  ],
+  exports: [
+    EmployeePersonalDetailsComponent
   ]
 })
 export class EmployeeDashboardModule { }

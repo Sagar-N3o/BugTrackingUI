@@ -1,3 +1,22 @@
-<p>
-  tester-dashboard works!
-</p>
+<app-tester-navbar></app-tester-navbar>
+
+<header id="header">
+  <div class="container">
+    <h1>
+      <span class="glyphicon glyphicon-cog" aria-hidden="true"> </span> Tester Dashboard
+    </h1>
+  </div>
+</header>
+
+<section id="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <app-tester-side-navbar></app-tester-side-navbar>
+      </div>
+      <div class="col-md-9">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>
