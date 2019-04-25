@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BugService } from 'src/app/shared/services/bug.service';
 import { Router } from '@angular/router';
-import { read } from 'fs';
 
 @Component({
   selector: 'app-tester-bug-create',
