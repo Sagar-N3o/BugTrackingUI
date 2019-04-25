@@ -44,7 +44,7 @@ export class TesterBugCreateComponent implements OnInit {
     this._bugService.CreateBug(this._bugService.BugForm.value, this.fileToUpload).subscribe(
       res => {
         if (res['Success'])
-          console.log(res);
+          this._router.navigate(['tester/bug']);
         else
           this.hasError = true;
       },
