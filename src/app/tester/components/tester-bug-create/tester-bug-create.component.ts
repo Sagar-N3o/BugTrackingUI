@@ -11,6 +11,8 @@ export class TesterBugCreateComponent implements OnInit {
 
   hasError: boolean = false;
   data: any = {};
+  projectId: number = 0;
+  users: any = [];
 
   constructor(
     private _bugService: BugService,
@@ -20,13 +22,42 @@ export class TesterBugCreateComponent implements OnInit {
   ngOnInit() {
     this._bugService.GetDataForCreatebug().subscribe(
       res => {
-        if (res['Success'])
-          this.data = res['Data'];
+        if (res['Success']) {
+          this.data = {
+            'projects': res['Data'].Projects,
+            'users': res['Data'].Users,
+            'priorities': res['Data'].Priorities,
+            'statusList': res['Data'].StatusList
+          }
+        }
         else
           this.hasError = true;
       },
       err => this.hasError = true
     );
+  }
+
+  OnSubmit() {
+    console.log(this._bugService.BugForm.value);
+  }
+
+  OnProjectSelected(projId: number) {
+    this.projectId = projId;
+    this.users = [];
+
+    this.data.users.forEach(user => {
+      if (user.Project_DevelopersViewModel[0] != null)
+        if (user.Project_DevelopersViewModel[0].ProjectId == this.projectId)
+          this.users.push(user);
+    });
+  }
+
+  fileEvent(name) {
+    (<HTMLInputElement>document.getElementById('imageInput')).value = name;
+  }
+
+  GoBack() {
+    this._router.navigate(['tester/bug']);
   }
 
 }

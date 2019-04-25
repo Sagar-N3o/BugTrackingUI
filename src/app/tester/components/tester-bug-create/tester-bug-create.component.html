@@ -1,1 +1,92 @@
-{{ data | json }}
+<div *ngIf="hasError" class="alert alert-danger mt-20">
+    Something went wrong.! try again :( <button type="button" class="btn btn-danger btn-link" (click)="GoBack()">Go
+        Back</button>
+</div>
+
+<div class="panel panel-default">
+    <form [formGroup]="_bugService.BugForm" (ngSubmit)="OnSubmit()">
+        <div class="panel-heading main-color-bg">
+            <h3 class="panel-title">
+                <span class="fa fa-plus">&nbsp;&nbsp;&nbsp;</span>Add new Bug
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row mb-10">
+                <div class="col-md-2">
+                    <label for="Title" class="control-label">Bug Title</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" id="Title" formControlName="Title" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row mb-10">
+                <div class="col-md-2">
+                    <label for="Description" class="control-label">Bug Description</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea id="Description" class="form-control" formControlName="Description" rows="4"></textarea>
+                </div>
+            </div>
+
+            <div class="row mb-10">
+                <div class="col-md-2">
+                    <label for="ImageUrl" class="control-label">Image</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <label class="input-group-btn">
+                            <span class="btn main-color-bg">
+                                Browse&hellip; 
+                                <input id="imageUrl" type="file" formControlName="ImageUrl" style="display: none;" 
+                                    (change)="fileEvent($event.target.files[0].name)">
+                            </span>
+                        </label>
+                        <input id="imageInput" type="text" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-10">
+                <div class="col-md-2">
+                    <label for="projectId" class="control-label">Project</label>
+                </div>
+                <div class="col-md-4">
+                    <select id="projectId" class="form-control" formControlName="projectId"
+                        (change)="OnProjectSelected($event.target.value)">
+                        <option selected value="-1">-- Select Project --</option>
+                        <option *ngFor="let project of data.projects" value="{{ project.Id }}">
+                            {{ project.ProjectName }}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="UserId" class="control-label">Employee</label>
+                </div>
+                <div class="col-md-4">
+                    <select id="UserId" class="form-control" formControlName="UserId">
+                        <option selected value="-1">-- Select Employee --</option>
+                        <option *ngFor="let user of users" [disabled]="projectId == 0" value="{{ user.Id }}">
+                            {{ user.FirstName }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-10">
+                <div class="col-md-2">
+                    <label for="PriorityId" class="control-label">Bug Priority</label>
+                </div>
+                <div class="col-md-4">
+                    <select id="PriorityId" class="form-control" formControlName="PriorityId">
+                        <option selected value="-1">--Select Bug Priority --</option>
+                        <option *ngFor="let priority of data.priorities" value="{{ priority.Id }}">
+                            {{ priority.BugPriority }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer text-right">
+            <input type="submit" class="btn main-color-bg" value="Submit" />
+        </div>
+    </form>
+</div>
