@@ -23,11 +23,11 @@ export class TesterBugDetailsComponent implements OnInit {
     this.Id = Number.parseInt(this._router.url.split('/')[4]);
     this._bugService.BugDetails(this.Id).subscribe(
       res => {
-        if (res['Success'])
+        if (res['Success']) {
           this.bug = {
             'title': res['Data'].Title,
             'description': res['Data'].Description,
-            'image': res['Data'].ImageUrl,
+            'image': "http://localhost:50664/BugImages/" + res['Data'].ImageUrl,
             'status': res['Data'].Bug_StatusViewModel.BugStatus,
             'priority': res['Data'].Bug_PrioritiesViewModel.BugPriority,
             'projectName': res['Data'].ProjectViewModel.ProjectName,
@@ -39,6 +39,7 @@ export class TesterBugDetailsComponent implements OnInit {
             'employeeContectNumber': res['Data'].UserViewModel.ContectNumber,
             'employeeExperience': res['Data'].UserViewModel.Experience
           };
+        }
         else
           this.hasError = true;
       },

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BugService } from 'src/app/shared/services/bug.service';
 import { Router } from '@angular/router';
+import { read } from 'fs';
 
 @Component({
   selector: 'app-tester-bug-create',
@@ -13,6 +14,8 @@ export class TesterBugCreateComponent implements OnInit {
   data: any = {};
   projectId: number = 0;
   users: any = [];
+  imageUrl: string = "";
+  fileToUpload: File = null;
 
   constructor(
     private _bugService: BugService,
@@ -38,7 +41,15 @@ export class TesterBugCreateComponent implements OnInit {
   }
 
   OnSubmit() {
-    console.log(this._bugService.BugForm.value);
+    this._bugService.CreateBug(this._bugService.BugForm.value, this.fileToUpload).subscribe(
+      res => {
+        if (res['Success'])
+          console.log(res);
+        else
+          this.hasError = true;
+      },
+      err => this.hasError = true
+    );
   }
 
   OnProjectSelected(projId: number) {
@@ -52,8 +63,9 @@ export class TesterBugCreateComponent implements OnInit {
     });
   }
 
-  fileEvent(name) {
-    (<HTMLInputElement>document.getElementById('imageInput')).value = name;
+  fileEvent(target: FileList) {
+    (<HTMLInputElement>document.getElementById('imageInput')).value = target[0].name;
+    this.fileToUpload = target.item(0);
   }
 
   GoBack() {

@@ -18,7 +18,6 @@ export class BugService {
   BugForm: FormGroup = this.fb.group({
     'Title': [''],
     'Description': [''],
-    'ImageUrl': [''],
     'projectId': [-1],
     'UserId': [-1],
     'PriorityId': [-1],
@@ -36,6 +35,19 @@ export class BugService {
   });
 
   // Bug
+  CreateBug(data: any, image: any) {
+    let input = new FormData();
+    input.append("Title", data.Title);
+    input.append("Description", data.Description);
+    input.append("ProjectId", data.projectId);
+    input.append("UserId", data.UserId);
+    input.append("PriorityId", data.PriorityId);
+    input.append("StatusId", "1");
+    input.append("file", image);
+
+    return this._http.post<any>(this._bashURL + 'create', input);
+  }
+
   GetAllBugs() {
     return this._http.get<any>(this._bashURL + 'get-all');
   }

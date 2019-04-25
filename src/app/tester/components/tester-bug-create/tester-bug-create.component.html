@@ -37,9 +37,9 @@
                     <div class="input-group">
                         <label class="input-group-btn">
                             <span class="btn main-color-bg">
-                                Browse&hellip; 
-                                <input id="imageUrl" type="file" formControlName="ImageUrl" style="display: none;" 
-                                    (change)="fileEvent($event.target.files[0].name)">
+                                Browse&hellip;
+                                <input id="imageUrl" type="file" style="display: none;" accept="image/*"
+                                    (change)="fileEvent($event.target.files)">
                             </span>
                         </label>
                         <input id="imageInput" type="text" class="form-control" readonly>
