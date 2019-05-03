@@ -20,7 +20,9 @@
       </tr>
       <tr>
         <td>Image</td>
-        <td colspan="2">{{ bug.image }}</td>
+        <td colspan="2">
+          <a [href]="bug.image" target="_blank">View Bug Screenshot</a>
+        </td>
       </tr>
       <tr>
         <td>Status</td>

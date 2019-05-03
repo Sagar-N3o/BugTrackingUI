@@ -27,7 +27,7 @@ export class EmployeeBugDetailsComponent implements OnInit {
           this.bug = {
             'title': res['Data'].Title,
             'description': res['Data'].Description,
-            'image': res['Data'].ImageUrl,
+            'image': "http://localhost:50664/bugimages/" + res['Data'].ImageUrl,
             'status': res['Data'].Bug_StatusViewModel.BugStatus,
             'priority': res['Data'].Bug_PrioritiesViewModel.BugPriority,
             'projectName': res['Data'].ProjectViewModel.ProjectName,

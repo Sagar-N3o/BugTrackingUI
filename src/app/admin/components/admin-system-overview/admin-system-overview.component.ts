@@ -11,7 +11,8 @@ export class AdminSystemOverviewComponent implements OnInit {
   systemOverView = {
     bugCount: 0,
     projectCount: 0,
-    EmployeeCount: 0
+    EmployeeCount: 0,
+    ProductsCount: 0
   };
 
   constructor(
@@ -27,6 +28,7 @@ export class AdminSystemOverviewComponent implements OnInit {
             this.systemOverView.bugCount = data['BugCount'];
             this.systemOverView.projectCount = data['ProjectCount'];
             this.systemOverView.EmployeeCount = data['EmployeeCount'];
+            this.systemOverView.ProductsCount = data['ProductsCount'];
           }
         },
         (err: any) => console.log(err)

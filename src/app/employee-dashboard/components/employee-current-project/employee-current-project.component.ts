@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ProjectService } from 'src/app/shared/services/project.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-current-project',
@@ -12,48 +12,38 @@ export class EmployeeCurrentProjectComponent implements OnInit {
   hasError: boolean = false;
   project: any = {};
   Id: number = 0;
-  statusList: any = [];
   data: any = {};
 
   constructor(
-    private _router: Router,
-    private _projectService: ProjectService
+    private _projectService: ProjectService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
     this.Id = Number.parseInt(sessionStorage.getItem('employee_id'));
     this.LoadProjectDetails();
-    this.LoadAllStatus();
-  }
-
-  LoadAllStatus() {
-    this._projectService.GetAllStatus().subscribe(
-      res => {
-        if (res['Success'])
-          this.statusList = res['Data'];
-        else
-          this.hasError = true;
-      },
-      err => this.hasError = true
-    );
   }
 
   LoadProjectDetails() {
     this._projectService.ProjectDetailsByUserId(this.Id).subscribe(
       res => {
-        if (res['Success'])
-          this.project = {
-            'Id': res['Data'].ProjectViewModel.Id,
-            'name': res['Data'].ProjectViewModel.ProjectName,
-            'description': res['Data'].ProjectViewModel.Description,
-            'isActive': res['Data'].ProjectViewModel.IsActive,
-            'status': res['Data'].ProjectViewModel.Project_StatusViewModel.ProjectStatus,
-            'technology': res['Data'].ProjectViewModel.Project_TechnologiesViewModel.Name,
-            'bugCount': res['Data'].ProjectViewModel.BugViewModels.length,
-            'bugs': res['Data'].ProjectViewModel.BugViewModels,
-            'employeeCount': res['Data'].ProjectViewModel.Project_DeveloperViewModels.length,
-            'employees': res['Data'].ProjectViewModel.Project_DeveloperViewModels
-          };
+        if (res['Success']) {
+          if (res['Data'].ProjectViewModel != null)
+            this.project = {
+              'Id': res['Data'].ProjectViewModel.Id,
+              'name': res['Data'].ProjectViewModel.ProjectName,
+              'description': res['Data'].ProjectViewModel.Description,
+              'isActive': res['Data'].ProjectViewModel.IsActive,
+              'status': res['Data'].ProjectViewModel.Project_StatusViewModel.ProjectStatus,
+              'technology': res['Data'].ProjectViewModel.Project_TechnologiesViewModel.Name,
+              'bugCount': res['Data'].ProjectViewModel.BugViewModels.length,
+              'bugs': res['Data'].ProjectViewModel.BugViewModels,
+              'employeeCount': res['Data'].ProjectViewModel.Project_DeveloperViewModels.length,
+              'employees': res['Data'].ProjectViewModel.Project_DeveloperViewModels
+            };
+          else
+            this.hasError = true;
+        }
         else
           this.hasError = true;
       },
@@ -61,11 +51,9 @@ export class EmployeeCurrentProjectComponent implements OnInit {
     );
   }
 
-  ChangeStatus() {
-    var e = document.getElementById('ddlStatus') as HTMLSelectElement;
-    var selectedValue = e.options[e.selectedIndex].value;
+  ChangeStatus(id: number) {
     this.data.Id = this.project.Id;
-    this.data.StatusId = selectedValue;
+    this.data.StatusId = id;
 
     this._projectService.ChangeStatus(this.data).subscribe(
       res => {
@@ -76,5 +64,9 @@ export class EmployeeCurrentProjectComponent implements OnInit {
       },
       err => this.hasError = true
     );
+  }
+
+  GoBack() {
+    this._router.navigate(['employee/profile']);
   }
 }
