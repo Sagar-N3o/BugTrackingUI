@@ -6,7 +6,7 @@
 <div class="panel panel-default">
   <div class="panel-heading main-color-bg">
     <h3 class="panel-title">
-      <span class="fa fa-tasks">&nbsp;&nbsp;&nbsp;</span>Current Project
+      <span class="fa fa-tasks">&nbsp;&nbsp;&nbsp;</span>Project Details
     </h3>
   </div>
   <div class="panel-body">
@@ -42,12 +42,15 @@
         </h4>
       </div>
       <div class="col-md-9 text-right" *ngIf="!hasError">
-        <button type="button" class="btn btn-link" 
-          [ngClass]="{'disabled': project.status == 'Under Testing'}" 
-          (click)="ChangeStatus(1007)">Change status : <b>Finished.</b></button>
+        <button type="button" class="btn btn-link" [ngClass]="{'disabled': project.status == 'Under Testing'}"
+          (click)="ChangeStatus(1005)">Change status : <b>Under Testing</b> | 
+        </button>
+        <button type="button" class="btn btn-link" [ngClass]="{'disabled': project.status == 'Under Testing'}"
+          (click)="ChangeStatus(1008)"><b>Completed</b>
+        </button>
       </div>
     </div>
-    
+
 
     <table class="table table-hover">
       <tr>

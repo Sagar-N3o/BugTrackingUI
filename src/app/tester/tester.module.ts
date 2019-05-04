@@ -11,6 +11,8 @@ import { TesterSideNavbarComponent } from './components/tester-side-navbar/teste
 import { TesterBugListComponent } from './components/tester-bug-list/tester-bug-list.component';
 import { TesterBugDetailsComponent } from './components/tester-bug-details/tester-bug-details.component';
 import { TesterBugCreateComponent } from './components/tester-bug-create/tester-bug-create.component';
+import { TesterProjectListComponent } from './components/tester-project-list/tester-project-list.component';
+import { TesterProjectDetailsComponent } from './components/tester-project-details/tester-project-details.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { TesterBugCreateComponent } from './components/tester-bug-create/tester-
     TesterSideNavbarComponent,
     TesterBugListComponent,
     TesterBugDetailsComponent,
-    TesterBugCreateComponent
+    TesterBugCreateComponent,
+    TesterProjectListComponent,
+    TesterProjectDetailsComponent
   ],
   imports: [
     CommonModule,

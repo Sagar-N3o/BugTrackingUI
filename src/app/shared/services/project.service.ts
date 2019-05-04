@@ -40,6 +40,10 @@ export class ProjectService {
     return this._http.get<any>(this._bashURL + 'get-all');
   }
 
+  GetFinished() {
+    return this._http.get<any>(this._bashURL + 'get-finished');
+  }
+
   ProjectDetails(id: number) {
     return this._http.get<any>(this._bashURL + 'get/' + id)
   }

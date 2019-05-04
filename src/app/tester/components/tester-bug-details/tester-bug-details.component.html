@@ -30,9 +30,12 @@
         <td>Status</td>
         <td width="185px">{{ bug.status }}</td>
         <td>
-          <button type="button" class="btn btn-link" (click)="ChangeStatus(2004)">Change bug status : 
+          <button type="button" class="btn btn-link" (click)="ChangeStatus(2004)"
+            [ngClass]="{'disabled': bug.projectStatus == 'Under Development'}">
+            Change bug status : 
             <b>Open.</b></button> | 
-          <button type="button" class="btn btn-link" (click)="ChangeStatus(1003)">
+          <button type="button" class="btn btn-link" (click)="ChangeStatus(1003)" 
+            [ngClass]="{'disabled': bug.projectStatus == 'Under Development'}">
             <b>Solved.</b></button>
         </td>
       </tr>
