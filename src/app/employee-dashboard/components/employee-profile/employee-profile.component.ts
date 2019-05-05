@@ -33,7 +33,7 @@ export class EmployeeProfileComponent implements OnInit {
             'dob': res['Data'].BirthDate,
             'experience': res['Data'].Experience,
             'bugCount': res['Data'].BugViewModels.length,
-            'projects': res['Data'].Project_DevelopersViewModel,
+            'project': res['Data'].Project_DevelopersViewModel,
             'bugs': res['Data'].BugViewModels
           };
         else

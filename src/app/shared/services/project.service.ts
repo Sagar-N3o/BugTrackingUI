@@ -19,7 +19,7 @@ export class ProjectService {
     'ProjectName': [''],
     'Description': [''],
     'TechnologyId': [''],
-    'IsActive': [false],
+    'IsActive': [true],
     'ProjectStatusId': ['3']
   });
 

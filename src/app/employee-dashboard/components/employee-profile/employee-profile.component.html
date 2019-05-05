@@ -17,12 +17,12 @@
       </div>
       <div class="panel-body">
         <table class="table table-hover">
-          <tr *ngIf="employee.projectCount == 0">
+          <tr *ngIf="employee.project == null">
             <td>
               You are not working in any project.
             </td>
           </tr>
-          <tr *ngFor="let project of employee.projects">
+          <tr *ngFor="let project of employee.project">
             <td>
               <div class="row bug-item">
                 <div class="col-md-5">
@@ -42,7 +42,7 @@
           </tr>
         </table>
       </div>
-      <div class="panel-footer">
+      <div class="panel-footer" [ngClass]="{'hidden': employee.project == null}">
         <input type="button" class="btn main-color-bg" value="Full Details" (click)="ViewProjectDetails()" />
       </div>
     </div>

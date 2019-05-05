@@ -44,33 +44,6 @@ export class CreateEmployeeComponent implements OnInit {
       },
       err => this.hasError = true
     );
-    // this.LogKeyValuePair(this._employeeService.employeeForm);
-  }
-
-  LogKeyValuePair(form: FormGroup) {
-    Object.keys(form.controls).forEach( (key: string) => {
-
-      const abstractControl = form.get(key);
-
-      if(abstractControl instanceof FormGroup) {
-        this.LogKeyValuePair(abstractControl);
-      } else {
-        console.log("Key: " + key + " | Value: " + abstractControl.value);
-      }
-    });
-  }
-
-  LoadData() {
-    this._employeeService.employeeForm.get('FirstName').setValue('Sagar');
-    this._employeeService.employeeForm.get('LastName').setValue('Agola');
-    this._employeeService.employeeForm.get('Email').setValue('n3o735@gmail.com');
-    this._employeeService.employeeForm.get('Address').setValue('221B, Backer Street');
-    this._employeeService.employeeForm.get('ContectNumber').setValue('735196488');
-    this._employeeService.employeeForm.get('RoleId').setValue('2');
-    this._employeeService.employeeForm.get('IsActive').setValue(true);
-    this._employeeService.employeeForm.get('BirthDate').setValue('1999-06-24');
-    this._employeeService.employeeForm.get('Experience').setValue(5);
-    this._employeeService.employeeForm.get('Password').setValue('pwd123');
   }
 
   GoBack() {

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class ListEmployeeComponent implements OnInit {
 
   employees: any = [];
+  testers: any = [];
   error: boolean = false;
 
   constructor(
@@ -22,13 +23,23 @@ export class ListEmployeeComponent implements OnInit {
     this._employeeService.GetAllEmployees()
       .subscribe(
         data => {
-          if(data['Success'])
-            this.employees = data['Data'];
+          if (data['Success']) {
+            this.employees = data['Data'].filter(this.IsEmployee);
+            this.testers = data['Data'].filter(this.IsTester);
+          }
           else 
             this.error = true;
         },
         err => this.error = true
       );
+  }
+  
+  IsEmployee(element) { 
+    return (element.User_RolesViewModel.RoleName == 'Employee'); 
+  }
+
+  IsTester(element) {
+    return (element.User_RolesViewModel.RoleName == 'Tester');
   }
 
   CreateNewEmployee() {
